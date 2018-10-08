@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, TextInput, Alert } from 'react-native';
 import firebase from 'firebase';
 
 class Forgot extends Component {
@@ -18,7 +18,7 @@ returner(){
 submitme(){
  
     firebase.auth().sendPasswordResetEmail(this.state.email).then(function(user){
-        alert('Revisa email!');
+        Alert.alert('Atencion', 'Revisa email para reestablecer contraseña');
     }).catch(function(e){
         alert(e);
     })

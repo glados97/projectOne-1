@@ -17,8 +17,9 @@ returner(){
 }
 
 submitme(){
-    firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then(function(user){
-      Alert.alert('Registro exitoso', 'Gracias por registrarte');
+    firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((user)=>{
+      Alert.alert('Atencion', 'Revisa email para confirmar registro');
+      firebase.auth().currentUser.sendEmailVerification();
     }).catch(function(e){
         //alert(e);
         Alert.alert('Error', 'Recuerda: Correo con formato usuario@dominio.com. Contraseña mínima de 6 caracteres y máxima de 12 caracteres.')

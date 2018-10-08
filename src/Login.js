@@ -8,6 +8,19 @@ import firebase from 'firebase';
 
 class Login extends Component {
 
+  // listenForTasks(tasksRef) {
+  //   // listen for changes to the tasks reference, when it updates we'll get a
+  //   // dataSnapshot from firebase
+  //   tasksRef.on('value', (dataSnapshot) => {
+  //     // transform the children to an array
+  //     var tasks = [];
+  //     dataSnapshot.forEach((child) => {
+  //       tasks.push({
+  //         name: child.val().name,
+  //         _key: child.key
+  //       });
+  //     });
+
 
 componentDidMount() {
     NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectionChange);
@@ -34,7 +47,7 @@ componentDidMount() {
 navigator.geolocation.watchPosition(
   (position) => {
     this.setState({ position });
-    Alert.alert('Atención', 'GPS');
+    //Alert.alert('Atención', 'GPS');
   },
   (error) => {
     if (error.code === 2) {
@@ -58,10 +71,15 @@ constructor (props) {
 
 submitme(){
     firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((user)=>{
+        
+        if (firebase.auth().currentUser.emailVerified){
         //alert('You are logged in!');
         this.props.navigator.immediatelyResetRouteStack([{
             component: Home
-        }]);   
+        }]); 
+      }else {
+        Alert.alert('Atención', 'Favor de verificar email')
+      }
     }).catch(function(e){
       Alert.alert('Error', 'Email o contraseña incorrecta')
     })
