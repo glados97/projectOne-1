@@ -20,7 +20,7 @@ submitme(){
     firebase.auth().sendPasswordResetEmail(this.state.email).then(function(user){
         Alert.alert('Atencion', 'Revisa email para reestablecer contraseña');
     }).catch(function(e){
-        alert(e);
+      Alert.alert('Error', 'Email incorrecto')
     })
 }
 

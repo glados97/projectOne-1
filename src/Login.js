@@ -28,6 +28,18 @@ componentDidMount() {
     NetInfo.isConnected.fetch().done(
       (isConnected) => { this.setState({ status: isConnected }); }
     );
+    navigator.geolocation.watchPosition(
+      (position) => {
+        this.setState({ position });
+        //Alert.alert('Atención', 'GPS');
+      },
+      (error) => {
+        if (error.code === 2) {
+          Alert.alert('Atención', 'No tienes activado GPS. Asegúrate de activar la geolocalización');
+          }
+      },
+      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+    );
 }
 
 componentWillUnmount() {
@@ -37,28 +49,25 @@ componentWillUnmount() {
 handleConnectionChange = (isConnected) => {
         this.setState({ status: isConnected });
         console.log(`is connected: ${this.state.status}`);
-        if(isConnected ==false)
+        if(isConnected==false)
         Alert.alert('Atención', 'No tienes conexión a Internet. Asegúrate de conectarte a una red');
         
 }
 
-
-componentDidMount() {
-navigator.geolocation.watchPosition(
-  (position) => {
-    this.setState({ position });
-    //Alert.alert('Atención', 'GPS');
-  },
-  (error) => {
-    if (error.code === 2) {
-      Alert.alert('Atención', 'No tienes activado GPS. Asegúrate de activar la geolocalización');
-      }
-  },
-  {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-);
-}
-
-
+// componentDidMount() {
+// navigator.geolocation.watchPosition(
+//   (position) => {
+//     this.setState({ position });
+//     //Alert.alert('Atención', 'GPS');
+//   },
+//   (error) => {
+//     if (error.code === 2) {
+//       Alert.alert('Atención', 'No tienes activado GPS. Asegúrate de activar la geolocalización');
+//       }
+//   },
+//   {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+// );
+// }
 
 
 constructor (props) {
@@ -101,7 +110,8 @@ linker(comp){
             />
 
         <View style={styles.container2}>
-        
+
+            {/* <Text > {this.state.isConnected ? 'Online' : 'Offline'}</Text> */}
             <Text style={styles.welcome}>Login</Text>
 
 
@@ -111,6 +121,7 @@ linker(comp){
                 placeholder={"Ingresa email"}
                 placeholderTextColor={"black"}
                 autoCorrect={false}
+                autoCapitalize="none"
                 keyboardType="email-address"
                 returnKeyType="next"
                 onSubmitEditing={()=> this.password.focus()}

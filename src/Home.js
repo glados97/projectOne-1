@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, TextInput } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 import firebase from 'firebase';
 import Login from './Login';
 import firebaseApp from './Firebase';
 
+console.ignoredYellowBox = ['Setting a timer'];
 
 var ref = firebase.database().ref("/");
 var query = ref.orderByChild("Nombre").equalTo("Consuelo Jimenez");
@@ -37,17 +39,18 @@ class Home extends Component {
                     </View>
         </TouchableHighlight>
 
-         <Text style={styles.welcome}>Home</Text>
+         {/* <Text style={styles.welcome}>Hi {firebase.auth().currentUser.email}</Text> */}
 
          <View>
         <Text style={styles.welcome}>Search For Teacher</Text>
         <TextInput
-              style={styles.searchInput}
+              style={styles.ramInput}
+              placeholder={"Buscar"}
               //onChange={this.handleChange.bind(this)}
             />
         <TouchableHighlight
                 //style = {styles.button}
-                underlayColor= "white"
+                underlayColor= "transparent"
                 //onPress = {this.handleSubmit.bind(this)}
               >
               <Text style={styles.txtboton}>SEARCH</Text>
@@ -75,7 +78,9 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         fontSize: 18,
         //backgroundColor: "cyan",
-        marginTop: 10
+        marginTop: 10,
+        borderColor: 'gray', 
+        borderWidth: 1
       },
       bigbutton: {
         height: 50,
@@ -88,8 +93,8 @@ const styles = StyleSheet.create({
       txtboton: {
         color: 'white',
         alignSelf: "center",
-        fontSize: 18,
-        fontWeight: "400",
+        fontSize: 16,
+        fontWeight: "500",
         color: "black"
       }
 

@@ -15,9 +15,9 @@ class Splash extends Component {
   //       }, 2000);
   //  }
 
-  //  componentWillUnmount(){
-  //       clearTimeout(this.timeoutHandle);
-  //  }
+   componentWillUnmount(){
+        clearTimeout(this.timeoutHandle);
+   }
 
 
   render() {

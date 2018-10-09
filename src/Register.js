@@ -54,6 +54,7 @@ submitme(){
               placeholder={"Ingresa email"}
               placeholderTextColor={"black"}
               autoCorrect={false}
+              autoCapitalize="none"
               keyboardType="email-address"
           />
           <Text style={styles.txtval1}>Formato: usuario@dominio.com</Text>
