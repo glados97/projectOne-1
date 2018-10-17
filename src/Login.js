@@ -35,7 +35,7 @@ componentDidMount() {
       },
       (error) => {
         if (error.code === 2) {
-          Alert.alert('Atención', 'No tienes activado GPS. Asegúrate de activar la geolocalización');
+          Alert.alert('Atención', 'No tienes activado GPS. Asegúrate de activarlo');
           }
       },
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
@@ -258,6 +258,8 @@ const styles = StyleSheet.create({
     //marginBottom:20,
     marginLeft: 20,
     marginRight: 20,
+    borderWidth: 0.5,
+    borderRadius: 20
   },
   bigbutton: {
     height: 50,

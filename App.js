@@ -5,6 +5,7 @@ import Login from './src/Login';
 import Register from './src/Register';
 import Forgot from './src/Forgot';
 import Splash from './src/Splash';
+import Perfil from './src/Perfil';
 import Home from './src/Home';
 import firebaseApp from './src/Firebase';
 import firebase from 'firebase';
@@ -22,7 +23,7 @@ import firebase from 'firebase';
 class App extends Component {
 
   renderScene(route, navigator){
-    return<route.component navigator={navigator} />
+    return<route.component navigator={navigator} {... route.passProps}/>
   }
 
   render(){
