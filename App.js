@@ -6,9 +6,12 @@ import Register from './src/Register';
 import Forgot from './src/Forgot';
 import Splash from './src/Splash';
 import Perfil from './src/Perfil';
+import Mapa from './src/Mapa';
 import Home from './src/Home';
 import firebaseApp from './src/Firebase';
 import firebase from 'firebase';
+import {DrawerNavigator} from 'react-navigation'
+import {createDrawerNavigator} from 'react-navigation'
 
 // firebase.initializeApp({
 //     apiKey: "AIzaSyAdLGWXdswQlUxVS5UXQXD6UrXzl9N4mXg",
@@ -19,17 +22,25 @@ import firebase from 'firebase';
 //     messagingSenderId: "309866393253"
 // });
 
+// const Drawer = createDrawerNavigator(
+//   {
+//     First: Home,
+//     Second: Mapa,
+//   }
+// );
 
 class App extends Component {
+
 
   renderScene(route, navigator){
     return<route.component navigator={navigator} {... route.passProps}/>
   }
 
+
   render(){
     return(
       <Navigator
-      initialRoute={{component: Login}}
+      initialRoute={{component: Home}}
       renderScene={this.renderScene.bind(this)} />
     )
   }

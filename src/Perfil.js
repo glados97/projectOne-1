@@ -8,7 +8,7 @@ class Perfil extends Component {
 constructor (props) {
     super(props)
     this.state = {
-        email: ""
+      data: this.props.data,
     }
 }
 
@@ -16,12 +16,15 @@ returner(){
     this.props.navigator.pop();
 }
 
-linker(comp){
+linker(data){
+  console.log(this.state.data)
   this.props.navigator.push({
-      component: comp
+      component: Direcciones,
+      passProps: {   
+        data: this.state.data
+     },
   })
 }
-
 
   render() {
     return (
@@ -40,17 +43,17 @@ linker(comp){
             />
       </View>
 
-      <View>
+      {/* <View>
       <Image 
             style={styles.foto}
             //source={require('./images/descarga.jpg')}
             source={{ uri: this.props.data.imagen }}
             />
-      </View>
+      </View> */}
 
         <View style={{alignItems: 'center'}}>
-            <Text style={{fontWeight:"600", fontSize: 24, color: "#000000"}}>{this.props.data.nombre}</Text>
-            <Text style={{fontWeight:"300", fontSize: 18, color: "#606060"}}>{this.props.data.escuela}</Text>
+            <Text style={{fontWeight:"600", fontSize: 22, color: "#000000", alignSelf: 'center', textAlign:'center'}}>{this.props.data.nombre}</Text>
+            <Text style={{fontWeight:"400", fontSize: 26, color: "#606060"}}>{this.props.data.direccion}</Text>
         </View>
 
         <View
@@ -63,19 +66,19 @@ linker(comp){
        
         <View style={{flexDirection:'row', marginLeft: 20}}>
             <View style={{alignItems: 'flex-start'}}>
-              <Text style={{fontSize: 16, color: "#000000"}}>Telefono:</Text>
-              <Text style={{fontSize: 16, color: "#000000"}}>Correo:</Text>
-              <Text style={{fontSize: 16, color: "#000000"}}>Ubicación:</Text>
+              <Text style={{fontSize: 14, color: "#000000"}}>Teléfono:</Text>
+              <Text style={{fontSize: 14, color: "#000000"}}>Posición:</Text>
+              <Text style={{fontSize: 14, color: "#000000"}}>Departamento:</Text>
             </View>
             <View style={{alignItems: 'flex-end'}}>
-              <Text style={{fontSize: 16, color: "#000000"}}>{this.props.data.telefono}</Text>
-              <Text style={{fontSize: 16, color: "#000000"}}>{this.props.data.correo}</Text>
-              <Text style={{fontSize: 16, color: "#000000"}}>{this.props.data.ubicacion}</Text>
+              <Text style={{fontSize: 14, color: "#000000"}}>81 8215 1000 Ext: {this.props.data.extension}</Text>
+              <Text style={{fontSize: 14, color: "#000000"}}>{this.props.data.posicion}</Text>
+              <Text style={{fontSize: 14, color: "#000000"}}> {this.props.data.departamento}</Text>
             </View>
         </View>
 
         <View style={{alignItems:'center'}}>
-          <Text style={{fontSize: 20, fontWeight:"300", color: "#606060", margin: 10}}>Cubículo {this.props.data.cubiculo}</Text>
+          <Text style={{fontSize: 20, fontWeight:"300", color: "#606060", margin: 10}}>Cubículo {this.props.data.ubicacion}</Text>
         </View>
 
         <View
@@ -87,7 +90,7 @@ linker(comp){
             }}
             />
       
-      <TouchableHighlight onPress={this.linker.bind(this, Direcciones)} underlayColor={'transparent'}>
+      <TouchableHighlight onPress={this.linker.bind(this, Direcciones )} underlayColor={'transparent'}>
                     <View style={styles.boton}>
                         <Text style={styles.txtboton}>Mostrar Direcciones</Text>
                     </View>
@@ -95,7 +98,7 @@ linker(comp){
 
       <TouchableHighlight underlayColor={'transparent'}>
                     <View style={styles.boton2}>
-                        <Text style={styles.txtboton}>Agendar Cita</Text>
+                        <Text style={styles.txtboton}>Mostrar Horario</Text>
                     </View>
       </TouchableHighlight>
 

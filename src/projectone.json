@@ -1,33 +1,40 @@
 {
   "colaboradores": [
-  {
-  "correo" : "consuelo.jimenez@udem.edu",
-  "cubiculo" : 5316,
-  "escuela" : "Escuela de Ingeniería y Tecnologías",
-  "nombre" : "Consuelo Jimenez",
-  "telefono" : 83536088,
-  "ubicacion" : "Edificio 5"
-}, {
-  "correo" : "marta.delrio@udem.edu",
-  "cubiculo" : 5311,
-  "escuela" : "Escuela de Ingeniería y Tecnologías",
-  "nombre" : "Marta Sylvia del Rio",
-  "telefono" : 83541110,
-  "ubicacion" : "Edificio 5"
-}, {
-  "correo" : "elizabeth.gutierrez@udem.edu",
-  "cubiculo" : 5320,
-  "escuela" : "Escuela de Ingeniería y Tecnologías",
-  "nombre" : "Elizabeth Gutierrez",
-  "telefono" : 83417420,
-  "ubicacion" : "Rectoria"
-}, {
-  "correo" : "jorge.mendez@udem.edu",
-  "cubiculo" : 5320,
-  "escuela" : "Escuela de Arte y Arquitectura",
-  "nombre" : "Jorge Méndez",
-  "telefono" : 834145217,
-  "ubicacion" : "CRGS"
-}
-]
+    {
+      "correo": "consuelo.jimenez@udem.edu",
+      "cubiculo": 5316,
+      "escuela": "Escuela de Ingeniería y Tecnologías",
+      "nombre": "Consuelo Jimenez",
+      "telefono": 83536088,
+      "ubicacion": "Edificio 5",
+      "imagen": "https://randomuser.me/api/portraits/thumb/women/85.jpg"
+    },
+    {
+      "correo": "marta.delrio@udem.edu",
+      "cubiculo": 5311,
+      "escuela": "Escuela de Ingeniería y Tecnologías",
+      "nombre": "Marta Sylvia del Rio",
+      "telefono": 83541110,
+      "ubicacion": "Edificio 5",
+      "imagen": "https://randomuser.me/api/portraits/thumb/women/61.jpg"
+    },
+    {
+      "correo": "elizabeth.gutierrez@udem.edu",
+      "cubiculo": 5320,
+      "escuela": "Escuela de Ingeniería y Tecnologías",
+      "nombre": "Elizabeth Gutierrez",
+      "telefono": 83417420,
+      "ubicacion": "Rectoria",
+      "imagen": "https://randomuser.me/api/portraits/thumb/women/23.jpg"
+    },
+    {
+      "correo": "jorge.mendez@udem.edu",
+      "cubiculo": 5320,
+      "escuela": "Escuela de Arte y Arquitectura",
+      "nombre": "Jorge Méndez",
+      "telefono": 834145217,
+      "ubicacion": "CRGS",
+      "imagen": "https://randomuser.me/api/portraits/thumb/men/41.jpg"
+    }
+  ]
 }

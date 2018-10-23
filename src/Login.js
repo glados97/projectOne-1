@@ -73,8 +73,8 @@ handleConnectionChange = (isConnected) => {
 constructor (props) {
     super(props)
     this.state = {
-        email: "",
-        password: ""
+        email: "santiagog94@gmail.com",
+        password: "pass123"
     }
 }
 

@@ -4,17 +4,11 @@ import { List, ListItem, SearchBar } from 'react-native-elements';
 import firebase from 'firebase';
 import Login from './Login';
 import Perfil from './Perfil';
+import Direcciones from './Direcciones';
 import firebaseApp from './Firebase';
 
 
 console.ignoredYellowBox = ['Setting a timer'];
-
-// var ref = firebase.database().ref("/");
-// var query = ref.orderByChild("Nombre").equalTo("Consuelo Jimenez");
-
-// query.on("value", snapshot => {
-//     console.log(snapshot.val());
-// });
 
 class Home extends Component {
 
@@ -67,27 +61,68 @@ class Home extends Component {
   }
 
   componentDidMount() {
+
+    firebase.database().ref("/colaboradores").on('value', snapshot =>
+    {
+      snapshot.forEach(child => {
+        //console.log(this.arrayholder);
+        this.arrayholder.push ({
+          idEmpleado: child.val().idEmpleado,
+          ubicacion: child.val().ubicacion,
+          nombre: child.val().nombre,
+          posicion: child.val().posicion,
+          departamento: child.val().departamento,
+          extension: child.val().extension,
+          direccion: child.val().direccion,
+        });
+      });
+    })
     this.makeRemoteRequest();
+
   }
 
   makeRemoteRequest = () => {
-    const url = `https://api.myjson.com/bins/117p1c`;
     this.setState({ loading: true });
 
-    fetch(url)
-      .then(res => res.json())
-      .then(res => {
+    let recentPostsRef = firebase.database().ref("/colaboradores");
+    recentPostsRef.once('value')
+      .then((snapshot) => {
+        //console.log(this.arrayholder);
         this.setState({
-          data: res.colaboradores,
+          data: this.arrayholder,
           error: res.error || null,
           loading: false,
         });
-        this.arrayholder = res.colaboradores;
+      //  this.arrayholder = snapshot.val();
+      //console.log(this.arrayholder);
       })
       .catch(error => {
         this.setState({ error, loading: false });
       });
   };
+  
+
+  // makeRemoteRequest = () => {
+  //   const url = `https://api.myjson.com/bins/117p1c`;
+  //   this.setState({ loading: true });
+
+  //   fetch(url)
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       console.log(res.colaboradores);
+  //       this.setState({
+  //         data: res.colaboradores,
+  //         error: res.error || null,
+  //         loading: false,
+  //       });
+  //       this.arrayholder = res.colaboradores;
+  //       console.log(this.arrayholder);
+  //     })
+  //     .catch(error => {
+  //       this.setState({ error, loading: false });
+  //     });
+  // };
+
 
   renderSeparator = () => {
     return (
@@ -110,7 +145,7 @@ class Home extends Component {
     
       const newData = this.arrayholder.filter(item => {
           
-      const itemData = `${item.nombre.toUpperCase()} ${item.escuela.toUpperCase()} ${item.cubiculo}` ;
+      const itemData = `${item.nombre.toUpperCase()} ${item.departamento.toUpperCase()} ${item.ubicacion}` ;
       const textData = text.toUpperCase();
       return itemData.indexOf(textData) > -1;
     });
@@ -136,6 +171,7 @@ class Home extends Component {
       </TouchableHighlight>
       </View>
       <SearchBar
+        clearIcon
         placeholder="Colaborador UDEM..."
         lightTheme
         inputStyle={{fontSize: 16, fontWeight: 'bold'} }
@@ -151,9 +187,9 @@ class Home extends Component {
 
 
   linker(data){
-    //console.log(data)
+    console.log(data)
     this.props.navigator.push({
-        component: Perfil,
+       component: Perfil,
         passProps: {   
           data: data
        },
@@ -196,15 +232,15 @@ render() {
         renderItem={({ item }) => (
           <ListItem
             onPress={this.linker.bind(this, item)}
-            roundAvatar
+            //roundAvatar
             underlayColor={'transparent'}
             title={`${item.nombre}`}
-            subtitle={item.correo}
-            avatar={{ uri: item.imagen }}
+            subtitle={item.departamento}
+            //avatar={{ uri: item.imagen }}
             containerStyle={{ borderBottomWidth: 1 }}
           />
         )}
-        keyExtractor={item => item.correo}
+        keyExtractor={item => item.idEmpleado}
         ItemSeparatorComponent={this.renderSeparator}
         ListHeaderComponent={this.renderHeader}
       />
