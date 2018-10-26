@@ -5,6 +5,7 @@ import Forgot from './Forgot';
 import Home from './Home';
 
 import firebase from 'firebase';
+import Menu from './Menu';
 
 class Login extends Component {
 
@@ -84,7 +85,7 @@ submitme(){
         if (firebase.auth().currentUser.emailVerified){
         //alert('You are logged in!');
         this.props.navigator.immediatelyResetRouteStack([{
-            component: Home
+            component: Menu
         }]); 
       }else {
         Alert.alert('Atención', 'Favor de verificar email')

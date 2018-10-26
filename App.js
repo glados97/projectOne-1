@@ -7,11 +7,15 @@ import Forgot from './src/Forgot';
 import Splash from './src/Splash';
 import Perfil from './src/Perfil';
 import Mapa from './src/Mapa';
+import ImagenVisor from './src/ImagenVisor';
+import Menu from './src/Menu';
 import Home from './src/Home';
 import firebaseApp from './src/Firebase';
 import firebase from 'firebase';
 import {DrawerNavigator} from 'react-navigation'
 import {createDrawerNavigator} from 'react-navigation'
+import MapView from 'react-native-maps';
+import MapViewDirections from 'react-native-maps-directions';
 
 // firebase.initializeApp({
 //     apiKey: "AIzaSyAdLGWXdswQlUxVS5UXQXD6UrXzl9N4mXg",
@@ -40,7 +44,7 @@ class App extends Component {
   render(){
     return(
       <Navigator
-      initialRoute={{component: Home}}
+      initialRoute={{component: Splash}}
       renderScene={this.renderScene.bind(this)} />
     )
   }

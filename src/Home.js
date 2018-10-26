@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Image, FlatList, ActivityIndicator  } from 'react-native';
-import { List, ListItem, SearchBar } from 'react-native-elements';
+import { List, ListItem, SearchBar, Icon } from 'react-native-elements';
 import firebase from 'firebase';
 import Login from './Login';
 import Perfil from './Perfil';
@@ -161,21 +161,35 @@ class Home extends Component {
     return (
     <View>
     <View style={{flexDirection:'row', backgroundColor:'#E1E9EC'}}>
+    <TouchableHighlight onPress={this.returner.bind(this)} underlayColor={'transparent'}>
+                    <View style={styles.backbutton}>
+                        <Text style={styles.backtxt}>{'<'}</Text>
+                    </View>
+    </TouchableHighlight>
+
     <Image 
             style={styles.logo}
             source={require('./images/search.png')}
             />
     
-    <TouchableHighlight style= {styles.bigbutton} onPress={this.submitme.bind(this)} underlayColor={'transparent'}>
+      {/* <TouchableHighlight style= {styles.bigbutton} onPress={this.submitme.bind(this)} underlayColor={'transparent'}>
             <Text style={styles.txtboton}>LOG OUT</Text>
-      </TouchableHighlight>
+      </TouchableHighlight> */}
+      <Icon
+        name='md-log-out'
+        type='ionicon'
+        size={45}
+        color='#37474F'
+        underlayColor={'transparent'}
+        containerStyle={{position:'absolute',alignSelf:'flex-end',marginLeft:305}}
+        onPress={this.submitme.bind(this)}
+      />
       </View>
       <SearchBar
         clearIcon
         placeholder="Colaborador UDEM..."
         lightTheme
         inputStyle={{fontSize: 16, fontWeight: 'bold'} }
-        //inputContainerStyle={{ color: "cyan" }}
         round
         platform="android"
         onChangeText={text => this.searchFilterFunction(text)}
@@ -185,6 +199,9 @@ class Home extends Component {
     );
   };
 
+  returner(){
+    this.props.navigator.pop();
+}
 
   linker(data){
     console.log(data)
@@ -325,11 +342,26 @@ const styles = StyleSheet.create({
         height: 90,
         width: 260,
         alignSelf: 'center',
-        marginTop: 5,
-        marginLeft: 22,
+        //marginTop: 5,
+        //marginLeft: 22,
         aspectRatio: 4, 
         resizeMode: 'contain',
-      }
+      },
+      backbutton: {
+        height: 50,
+        width: 50,
+        backgroundColor: '#37474F',
+        marginTop: 20,
+        marginLeft: 20,
+        justifyContent: "center",
+        borderRadius: 25
+      },
+      backtxt: {
+        color: "white",
+        fontSize: 32,
+        alignSelf: "center",
+        marginTop: -5
+      },
 });
 
 export default Home;

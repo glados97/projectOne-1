@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 
 import Login from './Login';
+
+const {width} = Dimensions.get('window');
 
 class Splash extends Component {
 
 
-  //   componentDidMount(){
-  //       // Empieza a contar cuando se carga la página
-  //       this.timeoutHandle = setTimeout(()=>{
-  //           this.props.navigator.push({
-  //               component: Login
-  //           }); 
-  //       }, 2000);
-  //  }
+    componentDidMount(){
+        // Empieza a contar cuando se carga la página
+        this.timeoutHandle = setTimeout(()=>{
+            this.props.navigator.push({
+                component: Login
+            }); 
+        }, 2000);
+   }
 
    componentWillUnmount(){
         clearTimeout(this.timeoutHandle);
@@ -23,18 +25,18 @@ class Splash extends Component {
   render() {
     return (
       <View style={styles.container}>
-        
-        <View style={styles.containerlogoudem}>  
-          <Image 
-              style={styles.logoudem}
-              source={require('./images/udem1.jpg')}
-              />
-        </View>
 
         <View style={styles.containerlogo}>  
           <Image 
               style={styles.logo}
               source={require('./images/search.png')}
+              />
+        </View>
+
+      <View style={styles.container2}>
+          <Image 
+              style={styles.logoudem}
+              source={require('./images/udem2.png')}
               />
         </View>
 
@@ -48,17 +50,20 @@ class Splash extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#C4C4C4',
+        backgroundColor: '#E4E4E4'
       },
-      containerlogoudem: {
-        alignItems: 'flex-start', //horizontal
-        justifyContent: 'flex-start' //vertical
+      container2: {
+        backgroundColor: '#F9FC65',
+        alignItems: 'center', //horizontal
+        position: 'absolute',
+        bottom: 0,
+        width:width
       },
       containerlogo: {
-        alignItems: 'center', //horizontal
-        justifyContent: 'center', //vertical
+        // alignItems: 'center', //horizontal
+        // justifyContent: 'center', //vertical
         alignSelf: 'center',
-        marginTop: 120
+        marginTop: 160
       },
       welcome: {
         fontSize: 20,
@@ -73,11 +78,11 @@ const styles = StyleSheet.create({
         margin: 10
       },
       logo: {
-        height: 90,
-        width: 260,
+        height: 120,
+        width: 280,
         // marginTop: 5,
-        //aspectRatio: 20, 
-        resizeMode: 'cover'
+        aspectRatio: 14, 
+        resizeMode: 'contain'
       }
 });
 
