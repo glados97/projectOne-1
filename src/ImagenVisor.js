@@ -12,9 +12,8 @@ constructor (props) {
     super(props)
     this.state = {
       data: this.props.data,
-      isImageViewVisible: false ,
+      isImageViewVisible: false,
       imageIndex: 0
-
     }
 }
 
@@ -38,7 +37,7 @@ returner(){
     const img1 = [ 
       {
       source:{
-      uri: 'https://images.emojiterra.com/twitter/512px/1f1e8-1f1e6.png',
+      uri: 'https://i.imgur.com/pFAExpx.jpg',
     },
       title: 'Canada',
       // width: 300,
@@ -49,7 +48,7 @@ returner(){
     const img2 = [ 
       {
       source:{
-      uri: 'https://conceptodefinicion.de/wp-content/uploads/2014/02/tierra.jpg',
+      uri: 'https://i.imgur.com/jPHQlZC.jpg',
     },
       title: 'Canada',
       // width: 300,
@@ -57,12 +56,12 @@ returner(){
     },  
     ];
 
-    const images = [
+    const img3 = [
       ...img1,
       ...img2,
       {
       source:{
-      uri: 'https://reactnativecode.com/wp-content/uploads/2018/02/desktop.jpeg',
+      uri: 'https://i.imgur.com/pFAExpx.jpg',
     },
       title: 'USA',
       // width: 300,
@@ -70,7 +69,7 @@ returner(){
     },
       {
         source:{
-          uri: 'https://cdn.pixabay.com/user/2015/01/20/20-56-42-330_250x250.jpg',
+          uri: 'https://i.imgur.com/gMdoYmg.jpg',
         },
         title: 'Mex',
         // width: 300,
@@ -78,16 +77,13 @@ returner(){
       },   
     ];
 
-    //const images = [ ...img1, ...img2  ];
+    const images = [ ...img1, ...img2,...img3  ];
 
     // var photos = images.map(function(image) {
     //   return (<Image url={image} rounded />);
     //  });
     console.log(images.title)
     
-    var tit = images.map((v,index)=>{
-      return <View key={index}><Text style={{fontSize:50}}>{v.title}</Text></View>
-    })
 
     const {isImageViewVisible, imageIndex} = this.state;
 
@@ -140,6 +136,7 @@ returner(){
                                 style={{width:300, height: 150, margin: 10}}
                                 source={image.source}
                                 resizeMode="cover"
+                                resizeMethod='resize'
                             />
                             <Text>{image.title}</Text>
                           </View>
@@ -155,7 +152,7 @@ returner(){
     isVisible={this.state.isImageViewVisible}
     // isVisible={ModalVisibleStatus}
     onClose={() => this.setState({isImageViewVisible: false})}
-    renderFooter={(currentImage) => (<View>{tit}</View>)}
+    //renderFooter={(currentImage) => (<View>MyFooter</View>)}
     />
 
       </View> 

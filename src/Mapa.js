@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Platform, Text, View, StyleSheet } from 'react-native';
+import { Platform, Text, View, StyleSheet, Image, Dimensions, TouchableHighlight } from 'react-native';
 import { Marker } from 'react-native-maps';
 import MapView from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
-
-//var currentLAT=location.coords.latitude;
-//var currentLONG =location.coords.longitude;
+const { width, height } = Dimensions.get("window");
 
 const cordenadas =[
         {
@@ -72,9 +70,16 @@ class Mapa extends Component {
     };
   }*/
 
+  onMapLayout = () => {
+    this.setState({ isMapReady: true });
+  }
+
+  returner(){
+    this.props.navigator.pop();
+  }
+
   
   componentDidMount() {
-
     navigator.geolocation.getCurrentPosition(
        (position) => {
          console.log(position);
@@ -101,35 +106,90 @@ class Mapa extends Component {
   render() {
    //console.log(this.setState);
     return (
-<MapView
-  region={this.state}
-  initialRegion={this.state}
-  
-  style={{ flex: 1 }}
-         showsUserLocation={true}
-        followUserLocation = {true}
-         zoomEnabled = {true}
->
+  <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
+      <View style={{flexDirection:'row', marginBottom: 20, backgroundColor: '#F5F5F5'}}>
+        <TouchableHighlight onPress={this.returner.bind(this)} underlayColor={'transparent'}>
+                        <View style={styles.backbutton}>
+                            <Text style={styles.backtxt}>{'<'}</Text>
+                        </View>
+        </TouchableHighlight>
 
-
-<Marker
-  coordinate = {cordenadas[3]}
-         />
-
-
-  <MapViewDirections
-    origin = {this.state}
-    destination = {cordenadas[3]}
-            strokeWidth = {4}
-            strokeColor = "red"
-            apikey = { "AIzaSyDUas0-SmxYDsRt1Pidw60DMWAfQgA8cPE" }
-            mode = "walking"
-  />
-
-  
-</MapView>
+        <Image 
+                style={styles.logo}
+                source={require('./images/search.png')}
+                />
+      </View>
+  <MapView
+    region={this.state}
+    initialRegion={this.state}
+    
+    style={{ flex: 1, height: height, width: width }}
+    showsUserLocation={true}
+    followUserLocation = {true}
+    zoomEnabled = {true}
+  >
+  <Marker
+    coordinate = {cordenadas[3]}
+          />
+    <MapViewDirections
+      origin = {this.state}
+      destination = {cordenadas[3]}
+              strokeWidth = {4}
+              strokeColor = "red"
+              apikey = { "AIzaSyDUas0-SmxYDsRt1Pidw60DMWAfQgA8cPE" }
+              mode = "walking"
+              />
+  </MapView>
+  </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      backgroundColor: '#eeeeee',
+      position: 'absolute',
+    },
+    backbutton: {
+      height: 50,
+      width: 50,
+      backgroundColor: '#37474F',
+      marginTop: 20,
+      marginLeft: 20,
+      justifyContent: "center",
+      borderRadius: 25
+    },
+    backtxt: {
+      color: "white",
+      fontSize: 32,
+      alignSelf: "center",
+      marginTop: -5
+    },
+    boton: {
+      height: 40,
+      width: 200,
+      alignSelf: "center",
+      backgroundColor: '#ffcd40',
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: 10
+    },
+    txtboton: {
+      alignSelf: "center",
+      fontSize: 16,
+      fontWeight: "bold",
+      color: "#282828"
+    },
+    logo: {
+      height: 90,
+      width: 260,
+      alignSelf: 'center',
+      marginTop: 5,
+      marginLeft: 15,
+      aspectRatio: 4, 
+      resizeMode: 'contain',
+    },
+});
 
 export default Mapa;

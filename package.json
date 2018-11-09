@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.19",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "jest": "^23.5.0",
     "jest-react-native": "^18.0.0",
@@ -18,8 +19,14 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "@dwqs/react-native-image-viewer": "^2.0.0",
     "firebase": "^5.5.2",
-    "react": "16.3.1",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.23",
+    "prop-types": "^15.6.2",
+    "react": "^16.3.1",
+    "react-live-clock": "^3.0.0",
+    "react-moment": "^0.8.3",
     "react-native": "~0.55.2",
     "react-native-deprecated-custom-components": "^0.1.2",
     "react-native-elements": "^0.19.1",

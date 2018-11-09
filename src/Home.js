@@ -68,6 +68,7 @@ class Home extends Component {
         //console.log(this.arrayholder);
         this.arrayholder.push ({
           idEmpleado: child.val().idEmpleado,
+          idAlternativo: child.val().idAlternativo,
           ubicacion: child.val().ubicacion,
           nombre: child.val().nombre,
           posicion: child.val().posicion,

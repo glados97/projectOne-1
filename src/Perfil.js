@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Image, Alert } from 'react-native';
 import Direcciones from './Direcciones';
+import Horario from './Horario';
 import firebase from 'firebase';
 
 class Perfil extends Component {
@@ -26,7 +27,18 @@ linker(data){
   })
 }
 
+linker2(data){
+  console.log(this.state.data)
+  this.props.navigator.push({
+      component: Horario,
+      passProps: {   
+        data: this.state.data
+     },
+  })
+}
+
   render() {
+    let cub = this.props.data.ubicacion.toString().substr(0, 4);
     return (
     <View style={{backgroundColor: '#F5F5F5'}}>
     <View style={{flexDirection:'row', marginBottom: 20}}>
@@ -78,7 +90,7 @@ linker(data){
         </View>
 
         <View style={{alignItems:'center'}}>
-          <Text style={{fontSize: 20, fontWeight:"300", color: "#606060", margin: 10}}>Cubículo {this.props.data.ubicacion}</Text>
+          <Text style={{fontSize: 20, fontWeight:"300", color: "#606060", margin: 10}}>Cubículo {cub}</Text>
         </View>
 
         <View
@@ -96,7 +108,7 @@ linker(data){
                     </View>
       </TouchableHighlight>
 
-      <TouchableHighlight underlayColor={'transparent'}>
+      <TouchableHighlight onPress={this.linker2.bind(this, Horario )} underlayColor={'transparent'}>
                     <View style={styles.boton2}>
                         <Text style={styles.txtboton}>Mostrar Horario</Text>
                     </View>
