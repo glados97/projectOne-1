@@ -7,6 +7,19 @@ import Forgot from './src/Forgot';
 import Splash from './src/Splash';
 import Perfil from './src/Perfil';
 import Mapa from './src/Mapa';
+import Mapa0 from './src/mapa/Mapa0';
+import Mapa1 from './src/mapa/Mapa1';
+import Mapa2 from './src/mapa/Mapa2';
+import Mapa3 from './src/mapa/Mapa3';
+import Mapa4 from './src/mapa/Mapa4';
+import Mapa5 from './src/mapa/Mapa5';
+import Mapa6 from './src/mapa/Mapa6';
+import Mapa7 from './src/mapa/Mapa7';
+import Mapa8 from './src/mapa/Mapa8';
+import Mapa9 from './src/mapa/Mapa9';
+import Mapa10 from './src/mapa/Mapa10';
+import Mapa11 from './src/mapa/Mapa11';
+import Menu_Mapa from './src/Menu_Mapa';
 import ImagenVisor from './src/ImagenVisor';
 import Menu from './src/Menu';
 import Home from './src/Home';
@@ -44,7 +57,7 @@ class App extends Component {
   render(){
     return(
       <Navigator
-      initialRoute={{component: Menu}}
+      initialRoute={{component: Home}}
       renderScene={this.renderScene.bind(this)} />
     )
   }

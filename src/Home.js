@@ -75,6 +75,8 @@ class Home extends Component {
           departamento: child.val().departamento,
           extension: child.val().extension,
           direccion: child.val().direccion,
+          correo: child.val().Correo,
+          foto: child.val().Foto
         });
       });
     })
@@ -250,15 +252,15 @@ render() {
         renderItem={({ item }) => (
           <ListItem
             onPress={this.linker.bind(this, item)}
-            //roundAvatar
+            roundAvatar
             underlayColor={'transparent'}
             title={`${item.nombre}`}
             subtitle={item.departamento}
-            //avatar={{ uri: item.imagen }}
+            avatar={{ uri: item.foto }}
             containerStyle={{ borderBottomWidth: 1 }}
           />
         )}
-        keyExtractor={item => item.idEmpleado}
+        keyExtractor={item => item.idAlternativo.toString()}
         ItemSeparatorComponent={this.renderSeparator}
         ListHeaderComponent={this.renderHeader}
       />

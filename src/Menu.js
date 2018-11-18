@@ -3,9 +3,8 @@ import { StyleSheet, Text, View, TouchableHighlight, Image, Alert } from 'react-
 import { Icon, Button } from 'react-native-elements'
 import Home from './Home';
 import Mapa from './Mapa';
-import Direcciones from './Direcciones';
+import Menu_Mapa from './Menu_Mapa';
 import firebase from 'firebase';
-import { bold } from 'ansi-colors';
 
 class Menu extends Component {
 
@@ -73,7 +72,7 @@ linker(comp){
         fontWeight='bold'
         rightIcon={{name: 'location', size:30, type:'octicon'}}
         title='MAPA'
-        onPress={this.linker.bind(this, Mapa)}
+        onPress={this.linker.bind(this, Menu_Mapa)}
         />
     </View>
 

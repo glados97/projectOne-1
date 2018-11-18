@@ -30,7 +30,7 @@ class Horario extends Component {
 
         let id = Number.parseInt(this.props.data.idAlternativo, 10)
         console.log(this.props.data.idAlternativo)
-        firebase.database().ref("/horarios").orderByChild("IdEmpleado").equalTo(id).on('value', snapshot =>
+        firebase.database().ref("/horarios").orderByChild("IdAlternativo").equalTo(id).on('value', snapshot =>
         {
         //console.log(this.props.data.idEmpleado)
           let arrayholder= [];
@@ -65,7 +65,7 @@ renderSeparator = () => {
 return (
     <View
     style={{
-        //height: 0.5,
+        height: 0.5,
         width: '86%',
         backgroundColor: '#CED0CE',
         marginLeft: '14%',
@@ -137,10 +137,19 @@ linker(data){
       <Text style={{fontWeight:"600", fontSize: 22, color: "#000000", alignSelf: 'center', textAlign:'center'}}>{this.props.data.nombre}</Text>
 
       <View style={{margin:10}}>
-        <Text style={{fontWeight:"300", fontSize: 18}}>{now}</Text>
-        {/* <Text style={{fontWeight:"300", fontSize: 22}}>{x}</Text> */}
+        <Text style={{fontWeight:"300", fontSize: 18, textAlign:'center'}}>{now}</Text>
+      </View>
+
+      <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
         {x}
       </View>
+
+      <View
+          style={{
+            borderBottomColor: "#888888",
+            borderBottomWidth: 1,
+            }}
+            />
       
       <FlatList
       contentContainerStyle={styles.scrollview}
@@ -186,10 +195,19 @@ linker(data){
         <Text style={{fontWeight:"600", fontSize: 22, color: "#000000", alignSelf: 'center', textAlign:'center'}}>{this.props.data.nombre}</Text>
   
         <View style={{margin:10}}>
-          <Text style={{fontWeight:"300", fontSize: 18}}>{now}</Text>
-          {/* <Text style={{fontWeight:"300", fontSize: 22}}>{x}</Text> */}
-          {x}
-        </View>
+        <Text style={{fontWeight:"300", fontSize: 18, textAlign:'center'}}>{now}</Text>
+      </View>
+
+      <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
+        {x}
+      </View>
+
+      <View
+          style={{
+            borderBottomColor: "#888888",
+            borderBottomWidth: 1,
+            }}
+            />
         
         <FlatList
         contentContainerStyle={styles.scrollview}
@@ -230,10 +248,19 @@ linker(data){
             <Text style={{fontWeight:"600", fontSize: 22, color: "#000000", alignSelf: 'center', textAlign:'center'}}>{this.props.data.nombre}</Text>
       
             <View style={{margin:10}}>
-              <Text style={{fontWeight:"300", fontSize: 18}}>{now}</Text>
-              {/* <Text style={{fontWeight:"300", fontSize: 22}}>{x}</Text> */}
+              <Text style={{fontWeight:"300", fontSize: 18, textAlign:'center'}}>{now}</Text>
+            </View>
+
+            <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
               {x}
             </View>
+
+            <View
+                style={{
+                  borderBottomColor: "#888888",
+                  borderBottomWidth: 1,
+                  }}
+                  />
             
             <FlatList
             contentContainerStyle={styles.scrollview}
@@ -273,11 +300,20 @@ linker(data){
           </View>
             <Text style={{fontWeight:"600", fontSize: 22, color: "#000000", alignSelf: 'center', textAlign:'center'}}>{this.props.data.nombre}</Text>
       
-            <View style={{margin:10}}>
-              <Text style={{fontWeight:"300", fontSize: 18}}>{now}</Text>
-              {/* <Text style={{fontWeight:"300", fontSize: 22}}>{x}</Text> */}
-              {x}
-            </View>
+          <View style={{margin:10}}>
+            <Text style={{fontWeight:"300", fontSize: 18, textAlign:'center'}}>{now}</Text>
+          </View>
+
+          <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
+            {x}
+          </View>
+
+          <View
+            style={{
+              borderBottomColor: "#888888",
+              borderBottomWidth: 1,
+              }}
+              />
             
             <FlatList
             contentContainerStyle={styles.scrollview}
@@ -317,11 +353,20 @@ linker(data){
           </View>
             <Text style={{fontWeight:"600", fontSize: 22, color: "#000000", alignSelf: 'center', textAlign:'center'}}>{this.props.data.nombre}</Text>
       
-            <View style={{margin:10}}>
-              <Text style={{fontWeight:"300", fontSize: 18}}>{now}</Text>
-              {/* <Text style={{fontWeight:"300", fontSize: 22}}>{x}</Text> */}
-              {x}
-            </View>
+        <View style={{margin:10}}>
+          <Text style={{fontWeight:"300", fontSize: 18, textAlign:'center'}}>{now}</Text>
+        </View>
+
+        <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
+          {x}
+        </View>
+
+        <View
+            style={{
+              borderBottomColor: "#888888",
+              borderBottomWidth: 1,
+              }}
+              />
             
             <FlatList
             contentContainerStyle={styles.scrollview}
@@ -343,7 +388,59 @@ linker(data){
             />
             </View>
           );
-      }//else
+      }else {
+        return (
+          <View style={{backgroundColor: '#F5F5F5'}}>
+          <View style={{flexDirection:'row', marginBottom: 20}}>
+      
+          <TouchableHighlight onPress={this.returner.bind(this)} underlayColor={'transparent'}>
+                          <View style={styles.backbutton}>
+                              <Text style={styles.backtxt}>{'<'}</Text>
+                          </View>
+          </TouchableHighlight>
+      
+          <Image 
+                  style={styles.logo}
+                  source={require('./images/search.png')}
+                  />
+          </View>
+            <Text style={{fontWeight:"600", fontSize: 22, color: "#000000", alignSelf: 'center', textAlign:'center'}}>{this.props.data.nombre}</Text>
+      
+        <View style={{margin:10}}>
+          <Text style={{fontWeight:"300", fontSize: 18, textAlign:'center'}}>{now}</Text>
+        </View>
+
+        <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
+          {x}
+        </View>
+
+        <View
+            style={{
+              borderBottomColor: "#888888",
+              borderBottomWidth: 1,
+              }}
+              />
+            
+            <FlatList
+            contentContainerStyle={styles.scrollview}
+            scrollEnabled={scrollEnabled}
+            onContentSizeChange={this.onContentSizeChange}
+            data={arrayholder}
+            renderItem={({item, index}) =>{
+                return(  
+                    <View>
+                    <Text style={{color: "#000000", fontWeight:"300", fontSize: 18}}> {item.materia} </Text>
+                    <Text style={{fontSize: 16}}>Hora de inicio: {item.inicioT} </Text>
+                    <Text style={{fontSize: 16}}>Hora fin: {item.finT} </Text>
+                    </View>
+                )
+            }}
+            keyExtractor = { (item, index) => index.toString() }
+            ItemSeparatorComponent={this.renderSeparator}
+            />
+            </View>
+          );
+          } //else
   }
 }
 
