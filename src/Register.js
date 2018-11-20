@@ -28,7 +28,8 @@ submitme(){
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{backgroundColor: '#F5F5F5'}}>
+      <View style={{flexDirection:'row', marginBottom: 20, backgroundColor: '#F5F5F5'}}>
 
               <TouchableHighlight onPress={this.returner.bind(this)} underlayColor={'transparent'}>
                   <View style={styles.backbutton}>
@@ -36,14 +37,13 @@ submitme(){
                   </View>
               </TouchableHighlight>
 
-    <View style={styles.logocontainer}>
         <Image 
             style={styles.logo}
             source={require('./images/search.png')}
         />
     </View>
       
-        <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={-70} style={styles.container2}>
+        <View style={styles.container2}>
             
           <Text style={styles.welcome}>Registro</Text>
 
@@ -73,11 +73,11 @@ submitme(){
         </View>
 
           <TouchableHighlight onPress={this.submitme.bind(this)} underlayColor={'transparent'}>
-                  <KeyboardAvoidingView enabled={false} style={styles.bigbutton}>
+                  <View style={styles.bigbutton}>
                       <Text style={styles.txtboton}>Regístrate</Text>
-                  </KeyboardAvoidingView>
+                  </View>
           </TouchableHighlight>
-        </KeyboardAvoidingView>
+        </View>
     </View>
     );
   }
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   container2: {
-    flex: 1,
+    //flex: 1,
     backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -98,10 +98,10 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   containerInput: {
-    flex: 1,
+    //flex: 1,
     backgroundColor: '#ffffff',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    //justifyContent: 'space-around',
     alignSelf: "center",
     //margin: 40,
   },
@@ -141,6 +141,8 @@ const styles = StyleSheet.create({
     //backgroundColor: "cyan",
     marginLeft: 20,
     marginRight: 20,
+    borderWidth: 0.5,
+    borderRadius: 20
   },
   bigbutton: {
     height: 50,
@@ -170,11 +172,12 @@ const styles = StyleSheet.create({
   logo: {
     height: 90,
     width: 260,
-    //alignSelf: 'center',
-    //marginTop: 10,
-    aspectRatio: 2, 
-    resizeMode: 'contain'
-  }
+    alignSelf: 'center',
+    marginTop: 5,
+    marginLeft: 15,
+    aspectRatio: 4, 
+    resizeMode: 'contain',
+  },
 });
 
 export default Register;

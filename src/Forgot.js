@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, TextInput, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, TextInput, Alert, Image } from 'react-native';
 import firebase from 'firebase';
 
 class Forgot extends Component {
@@ -26,13 +26,20 @@ submitme(){
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{backgroundColor: '#F5F5F5'}}>
+      <View style={{flexDirection:'row', marginBottom: 20, backgroundColor: '#F5F5F5'}}>
 
             <TouchableHighlight onPress={this.returner.bind(this)} underlayColor={'transparent'}>
                     <View style={styles.backbutton}>
                         <Text style={styles.backout}>{'<'}</Text>
                     </View>
             </TouchableHighlight>
+
+            <Image 
+            style={styles.logo}
+            source={require('./images/search.png')}
+            />
+      </View>
             
         <View style={styles.container2}>
 
@@ -67,17 +74,17 @@ const styles = StyleSheet.create({
         position: 'absolute',
       },
       container2: {
-        flex: 1,
+        //flex: 1,
         backgroundColor: '#ffffff',
         alignItems: 'center',
         justifyContent: 'flex-start',
         alignSelf: "center",
         margin: 10,
-        marginTop: 40
+        //marginTop: 40
       },
       containerInput: {
-        flex: 1,
-        //backgroundColor: '#ffffff',
+        //flex: 1,
+        backgroundColor: '#ffffff',
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: "center",
@@ -140,6 +147,15 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "500",
         color: "black"
+      },
+      logo: {
+        height: 90,
+        width: 260,
+        alignSelf: 'center',
+        marginTop: 5,
+        marginLeft: 15,
+        aspectRatio: 4, 
+        resizeMode: 'contain',
       },
 
 });

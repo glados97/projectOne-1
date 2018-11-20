@@ -103,12 +103,14 @@ linker(comp){
 
   render() {
     return (
-      <View  style={styles.container}>
+      <View style={{backgroundColor: '#F5F5F5'}}>
+      <View style={{flexDirection:'row', marginBottom: 20, backgroundColor: '#F5F5F5', alignSelf:'center'}}>
 
             <Image 
             style={styles.logo}
             source={require('./images/search.png')}
             />
+        </View>
 
         <View style={styles.container2}>
 
@@ -168,14 +170,14 @@ linker(comp){
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    //flex: 1,
     backgroundColor: '#eeeeee',
     alignItems: 'center',
     position: 'absolute',
     //marginRight: 40
   },
   container2: {
-    flex: 1,
+    //flex: 1,
     backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -183,10 +185,10 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   containerInput: {
-    flex: 1,
+    //flex: 1,
     backgroundColor: '#ffffff',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    //justifyContent: 'space-around',
     alignSelf: "center",
     //margin: 40,
   },
@@ -260,7 +262,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     borderWidth: 0.5,
-    borderRadius: 20
+     borderRadius: 20
   },
   bigbutton: {
     height: 50,
@@ -273,11 +275,12 @@ const styles = StyleSheet.create({
   logo: {
     height: 90,
     width: 260,
-    //alignSelf: 'center',
+    alignSelf: 'center',
     marginTop: 5,
-    aspectRatio: 2, 
+    marginLeft: 15,
+    aspectRatio: 3, 
     resizeMode: 'contain',
-  }
+  },
 });
 
 export default Login;

@@ -57,7 +57,7 @@ class App extends Component {
   render(){
     return(
       <Navigator
-      initialRoute={{component: Menu}}
+      initialRoute={{component: Splash}}
       renderScene={this.renderScene.bind(this)} />
     )
   }

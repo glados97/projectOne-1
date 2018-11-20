@@ -30,7 +30,7 @@ class Horario extends Component {
 
         let id = Number.parseInt(this.props.data.idAlternativo, 10)
         console.log(this.props.data.idAlternativo)
-        firebase.database().ref("/horarios").orderByChild("IdAlternativo").equalTo(id).on('value', snapshot =>
+        firebase.database().ref("/horarios").orderByChild("IdEmpleado").equalTo(id).on('value', snapshot =>
         {
         //console.log(this.props.data.idEmpleado)
           let arrayholder= [];
