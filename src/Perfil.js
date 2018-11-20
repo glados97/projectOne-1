@@ -167,13 +167,13 @@ linker2(data){
                     </View>
       </TouchableHighlight> */}
 
- {correo!=null ? <TouchableHighlight onPress={() => Communications.email(correo,null,null,null,null)} underlayColor={'transparent'}>
+ {correo!='ayudaenlinea@udem.edu' ? <TouchableHighlight onPress={() => Communications.email([correo],null,null,null,null)} underlayColor={'transparent'}>
                     <View style={styles.boton2}>
                         <Text style={styles.txtboton}>Enviar Correo</Text>
                     </View>
       </TouchableHighlight> 
       : 
-      <TouchableHighlight onPress={() => Communications.email('ayudaenlinea@udem.edu',null,null,'Contacto de '+this.props.data.nombre,'Quiero contactar a '+this.props.data.nombre)} underlayColor={'transparent'}>
+      <TouchableHighlight onPress={() => Communications.email(['ayudaenlinea@udem.edu'],null,null,'Contacto de '+this.props.data.nombre,'Quiero contactar a '+this.props.data.nombre)} underlayColor={'transparent'}>
                     <View style={styles.boton2}>
                         <Text style={styles.txtboton}>Enviar Correo</Text>
                     </View>

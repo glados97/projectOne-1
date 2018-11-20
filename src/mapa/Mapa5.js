@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, Text, View, StyleSheet, TouchableHighlight } from 'react-native';
+import { Platform, Text, View, StyleSheet, TouchableHighlight, Image } from 'react-native';
 import { Icon, Button } from 'react-native-elements'
 import { Marker } from 'react-native-maps';
 import MapView from 'react-native-maps';
@@ -60,40 +60,7 @@ const cordenadas =[
         
 ];
 
-
-/*const titulo =[
-        {title: "RADIO UDEM"},
-        {title: "CCU, BANCOMER Y LA TROYA"},
-        {title: "RESIS"},
-        {title: "EDIFICIO 1 Y 2"},
-        {title: "EDIFICIO 3 Y 4"},
-        {title: "EDIFICIO 5 Y 6 Y SANTANDER"},
-        {title: "CRGS"},
-        {title: "PREPA UDEM"},
-        {title: "RECTORIA Y CIAA"},
-        {title: "SEVEN"},
-        {title: "SOMBREADO Y STARBUCKS"},
-        {title: "BIBLIOTECA Y DITSI"},
-];*/
 class Mapa5 extends Component {
-
-  /*constructor(props) {
-    super(props);
-
-   this.state = {
-      latitude: position.coords.latitude,
-           longitude: position.coords.longitude,
-      error: null,
-    };
-  }*/
-
- /*constructor (props) {
-    super(props)
-    this.state = {
-      data: this.props.data,
-    }
-    this.cordenadas = [];
-}*/
 
   componentDidMount() {
 
@@ -120,10 +87,27 @@ class Mapa5 extends Component {
      );
    }
 
+   returner(){
+    this.props.navigator.pop();
+  }
+
   render() {
 
    //console.log(this.setState);
     return (
+      <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
+      <View style={{flexDirection:'row', marginBottom: 20, backgroundColor: '#F5F5F5'}}>
+        <TouchableHighlight onPress={this.returner.bind(this)} underlayColor={'transparent'}>
+                        <View style={styles.backbutton}>
+                            <Text style={styles.backtxt}>{'<'}</Text>
+                        </View>
+        </TouchableHighlight>
+
+        <Image 
+                style={styles.logo}
+                source={require('../images/search.png')}
+                />
+      </View>
 <MapView
   region={this.state}
   initialRegion={this.state}
@@ -149,12 +133,59 @@ class Mapa5 extends Component {
             apikey = { "AIzaSyDUas0-SmxYDsRt1Pidw60DMWAfQgA8cPE" }
             mode = "walking"
   />
-
-  
 </MapView>
+ </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      backgroundColor: '#eeeeee',
+      position: 'absolute',
+    },
+    backbutton: {
+      height: 50,
+      width: 50,
+      backgroundColor: '#37474F',
+      marginTop: 20,
+      marginLeft: 20,
+      justifyContent: "center",
+      borderRadius: 25
+    },
+    backtxt: {
+      color: "white",
+      fontSize: 32,
+      alignSelf: "center",
+      marginTop: -5
+    },
+    boton: {
+      height: 40,
+      width: 200,
+      alignSelf: "center",
+      backgroundColor: '#ffcd40',
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: 10
+    },
+    txtboton: {
+      alignSelf: "center",
+      fontSize: 16,
+      fontWeight: "bold",
+      color: "#282828"
+    },
+    logo: {
+      height: 90,
+      width: 260,
+      alignSelf: 'center',
+      marginTop: 5,
+      marginLeft: 15,
+      aspectRatio: 4, 
+      resizeMode: 'contain',
+    },
+});
+
 
 
 export default Mapa5;

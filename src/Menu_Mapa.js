@@ -109,6 +109,17 @@ linker(comp){
     })
   }
 
+  submitme(){
+    firebase.auth().signOut().then((user)=>{
+        //alert('You are logged in!');
+        this.props.navigator.immediatelyResetRouteStack([{
+            component: Login
+        }]);   
+    }).catch(function(e){
+        alert(e);
+    })
+}
+
   render() {
     return (
     	<View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
@@ -126,10 +137,22 @@ linker(comp){
               style={styles.logo}
               source={require('./images/search.png')}
               />
+        
+        <Icon
+        name='md-log-out'
+        type='ionicon'
+        size={45}
+        color='#37474F'
+        underlayColor={'transparent'}
+        containerStyle={{position:'absolute',alignSelf:'flex-end',marginLeft:340}}
+        onPress={this.submitme.bind(this)}
+      />
         </View>
+      
 
     <Button
         small
+        //rightIcon={{name: 'arrow-forward', size:20}}
         borderRadius={40}
         backgroundColor='#6e7e8b'
         containerViewStyle={{ marginTop:15}}
@@ -147,7 +170,7 @@ linker(comp){
         containerViewStyle={{ marginTop:15}}
         fontSize={12}
         fontWeight='bold'
-        title='CCU, BANORTE Y LA TROYA'
+        title='CENTRO DE LA COMUNIDAD UNIVERSITARIA (CCU), BANORTE, CAFETERÍA'
         onPress={this.linker.bind(this, Mapa1)}
         />
 
@@ -158,7 +181,7 @@ linker(comp){
         containerViewStyle={{ marginTop:15}}
         fontSize={12}
         fontWeight='bold'
-        title='RESIDENCIAS'
+        title='RESIDENCIAS UDEM'
         onPress={this.linker.bind(this, Mapa2)}
         />
 
@@ -191,7 +214,7 @@ linker(comp){
         containerViewStyle={{ marginTop:15}}
         fontSize={12}
         fontWeight='bold'
-        title='EDIFICIO 5 Y 6 Y SANTANDER'
+        title='EDIFICIO 5 Y 6, SANTANDER'
         onPress={this.linker.bind(this, Mapa5)}
         />
 
@@ -224,7 +247,7 @@ linker(comp){
         containerViewStyle={{ marginTop:15}}
         fontSize={12}
         fontWeight='bold'
-        title='RECTORIA Y CIAA'
+        title='RECTORÍA, CENTRO DE INFORMACIÓN Y ATENCIÓN A ALUMNOS (CIAA)'
         onPress={this.linker.bind(this, Mapa8)}
         />  
 

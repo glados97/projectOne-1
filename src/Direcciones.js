@@ -40,6 +40,7 @@ returner(){
 
 
   render() {
+    console.disableYellowBox = true;
     const scrollEnabled = this.state.screenHeight > height;
     let images = []
     let edificio = this.props.data.ubicacion.toString().substr(0, 1);
