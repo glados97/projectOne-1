@@ -145,7 +145,7 @@ linker2(data){
       
       <TouchableHighlight onPress={this.linker.bind(this, Direcciones )} underlayColor={'transparent'}>
                     <View style={styles.boton}>
-                        <Text style={styles.txtboton}>Mostrar Direcciones</Text>
+                        <Text style={styles.txtboton}>Mostrar Ruta a Cubículo</Text>
                     </View>
       </TouchableHighlight>
 

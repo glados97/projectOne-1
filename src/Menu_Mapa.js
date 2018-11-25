@@ -144,7 +144,7 @@ linker(comp){
         size={45}
         color='#37474F'
         underlayColor={'transparent'}
-        containerStyle={{position:'absolute',alignSelf:'flex-end',marginLeft:340}}
+        containerStyle={{position:'absolute',alignSelf:'flex-end',marginLeft:300}}
         onPress={this.submitme.bind(this)}
       />
         </View>

@@ -66,6 +66,16 @@ returner(){
     },  
     ];
 
+    const paso5_1_izq = [ 
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio_Entrada-min.jpg?alt=media&token=0ea8abeb-90f9-4452-9d13-5d3e81e4b545',
+          uri: 'https://i.imgur.com/uwy5Uud.jpg',
+        },
+        title: 'Dirígete al cubículo '+ espacio
+      }, 
+      ];
+
     const paso6_1 = [ 
       //...images5_1,
       {
@@ -84,6 +94,24 @@ returner(){
         }   
     ];
 
+    const paso6_1_def = [ 
+      //...images5_1,
+        {
+        title: 'Dirígete al cubículo '+ espacio,
+        }   
+    ];
+
+    const paso6_1_der = [ 
+      //...images5_1,
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso1_Escaleras-min.jpg?alt=media&token=4f7770e3-d313-4a6f-8341-38776618830d',
+          uri: 'https://i.imgur.com/6bVTUzp.jpg'
+      },
+        title: 'Dirígete al cubículo '+ espacio,
+      },  
+    ];
+
     const paso5_2 = [ 
       //...images5_1,
       // ...images6_1,
@@ -99,8 +127,32 @@ returner(){
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso2_Frontal-min.jpg?alt=media&token=5dc4b621-b92b-4c72-8576-bdf2ff3a5b92',
           uri: 'https://i.imgur.com/T5YyYTO.jpg'
         },
-        title: 'Estas en el segundo piso del Edificio 5.',
+        title: 'Estás en el segundo piso del Edificio 5.',
         }   
+    ];
+
+    const paso5_2_der = [ 
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso1_Escaleras-min.jpg?alt=media&token=69736fa3-792a-46a1-89eb-48a65afd3ac9',
+          uri: 'https://i.imgur.com/TTrLiTy.jpg'
+        },
+        title: 'Sube las escaleras',
+      },
+        {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso2_Frontal-min.jpg?alt=media&token=5dc4b621-b92b-4c72-8576-bdf2ff3a5b92',
+          uri: 'https://i.imgur.com/T5YyYTO.jpg'
+        },
+        title: 'Dirígete derecho y gira hacia la derecha.',
+        },
+        {
+          source:{
+            //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso2_Frontal-min.jpg?alt=media&token=5dc4b621-b92b-4c72-8576-bdf2ff3a5b92',
+            uri: 'https://i.imgur.com/uu5Ogog.jpg' //foto pasillo derecho
+          },
+          title: 'Dirígete al cubículo ' + espacio
+          }   
     ];
 
     const paso6_2 = [ 
@@ -119,15 +171,65 @@ returner(){
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso2_Frontal-min.jpg?alt=media&token=19b03314-ef07-4fdf-a98f-4db8b46579db',
           uri: 'https://i.imgur.com/qoHMtFB.jpg'
         },
-        title: 'Estas en el segundo piso del Edificio 6.',
+        title: 'Estás en el segundo piso del Edificio 6.',
         }   
     ];
 
+    const paso6_2_der = [ 
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso2_Escaleras-min.jpg?alt=media&token=5bae56b1-6dac-4174-a0ac-ae0b064218e6',
+          uri: 'https://i.imgur.com/0ve4OUP.jpg'
+        },
+        title: 'Sube las escaleras',
+      },
+        {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso2_Frontal-min.jpg?alt=media&token=19b03314-ef07-4fdf-a98f-4db8b46579db',
+          uri: 'https://i.imgur.com/qoHMtFB.jpg'
+        },
+        title: 'Estás en el segundo piso del Edificio 6.',
+        },
+        {
+          source:{
+            //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso2_Frontal-min.jpg?alt=media&token=19b03314-ef07-4fdf-a98f-4db8b46579db',
+            uri: 'https://i.imgur.com/7SSvG7z.jpg'
+          },
+          title: 'Gira a la derecha y ve al cubículo ' +espacio,
+          } 
+    ];
+
+    const paso6_2_izq = [ 
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso2_Escaleras-min.jpg?alt=media&token=5bae56b1-6dac-4174-a0ac-ae0b064218e6',
+          uri: 'https://i.imgur.com/0ve4OUP.jpg'
+        },
+        title: 'Sube las escaleras',
+      },
+        {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso2_Frontal-min.jpg?alt=media&token=19b03314-ef07-4fdf-a98f-4db8b46579db',
+          uri: 'https://i.imgur.com/qoHMtFB.jpg'
+        },
+        title: 'Estás en el segundo piso del Edificio 6.',
+        },
+        {
+          source:{
+            //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso2_Frontal-min.jpg?alt=media&token=19b03314-ef07-4fdf-a98f-4db8b46579db',
+            uri: 'https://i.imgur.com/ZV014TD.jpg'
+          },
+          title: 'Gira a la izquierda y ve al cubículo ' + espacio,
+          } 
+    ];
+
+    const paso6_2_fro = [ 
+        {
+          title: 'Dirígete derecho y ve al cubículo ' + espacio
+          } 
+    ];
+
     const paso5_3 = [ 
-      // ...images5_1,
-      // ...images6_1,
-      // ...images5_2,
-      // ...images6_2,
       {
         source:{
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso2_Escaleras-min.jpg?alt=media&token=db874ca2-5b5e-4d75-8b64-0c4d7102ef4c',
@@ -140,16 +242,35 @@ returner(){
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso3_Frontal-min.jpg?alt=media&token=ef9ea9f2-54ac-4ef6-9385-2ba9f94f748b',
           uri: 'https://i.imgur.com/aLyQHfD.jpg'
         },
-        title: 'Estas en el tercer piso del Edificio 5.',
+        title: 'Estás en el tercer piso del Edificio 5.',
         }   
     ];
 
+    const paso5_3_der = [ 
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso2_Escaleras-min.jpg?alt=media&token=db874ca2-5b5e-4d75-8b64-0c4d7102ef4c',
+          uri: 'https://i.imgur.com/9z6MuXp.jpg'
+        },
+        title: 'Sube las escaleras',
+      },
+        {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso3_Frontal-min.jpg?alt=media&token=ef9ea9f2-54ac-4ef6-9385-2ba9f94f748b',
+          uri: 'https://i.imgur.com/aLyQHfD.jpg'
+        },
+        title: 'Dirígete derecho y gira hacia la derecha.',
+        },
+        {
+          source:{
+            //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso3_Frontal-min.jpg?alt=media&token=ef9ea9f2-54ac-4ef6-9385-2ba9f94f748b',
+            uri: 'https://i.imgur.com/HbVt5BA.jpg' //foto pasillo derecho
+          },
+          title: 'Dirígete al cubículo '+ espacio,
+          }  
+    ];
+
     const paso6_3 = [ 
-      // ...images5_1,
-      // ...images6_1,
-      // ...images5_2,
-      // ...images6_2,
-      // ...images5_3,
       {
         source:{
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso3_Escaleras-min.jpg?alt=media&token=22029237-b3c9-4b16-8cfd-b48d7f180dcf',
@@ -162,17 +283,59 @@ returner(){
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso3_Frontal-min.jpg?alt=media&token=6620c3a4-a384-43dd-9cac-0a29005aa56c',
           uri: 'https://i.imgur.com/oThPGew.jpg'
         },
-        title: 'Estas en el tercer piso del Edificio 6.',
+        title: 'Estás en el tercer piso del Edificio 6.',
         }   
     ];
 
+    const paso6_3_der = [ 
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso3_Escaleras-min.jpg?alt=media&token=22029237-b3c9-4b16-8cfd-b48d7f180dcf',
+          uri: 'https://i.imgur.com/gMdoYmg.jpg'
+        },
+        title: 'Sube las escaleras',
+      },
+        {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso3_Frontal-min.jpg?alt=media&token=6620c3a4-a384-43dd-9cac-0a29005aa56c',
+          uri: 'https://i.imgur.com/oThPGew.jpg'
+        },
+        title: 'Estás en el tercer piso del Edificio 6.',
+        },
+        {
+          source:{
+            //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso3_Frontal-min.jpg?alt=media&token=6620c3a4-a384-43dd-9cac-0a29005aa56c',
+            uri: 'https://i.imgur.com/RbUbaZA.jpg'
+          },
+          title: 'Gira a la derecha y ve al cubículo ' + espacio,
+          } 
+    ];
+
+    const paso6_3_izq = [ 
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso3_Escaleras-min.jpg?alt=media&token=22029237-b3c9-4b16-8cfd-b48d7f180dcf',
+          uri: 'https://i.imgur.com/gMdoYmg.jpg'
+        },
+        title: 'Sube las escaleras',
+      },
+        {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso3_Frontal-min.jpg?alt=media&token=6620c3a4-a384-43dd-9cac-0a29005aa56c',
+          uri: 'https://i.imgur.com/oThPGew.jpg'
+        },
+        title: 'Estás en el tercer piso del Edificio 6.',
+        },
+        {
+          source:{
+            //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso3_Frontal-min.jpg?alt=media&token=6620c3a4-a384-43dd-9cac-0a29005aa56c',
+            uri: 'https://i.imgur.com/Eg0Sp5P.jpg'
+          },
+          title: 'Gira a la izquierda y ve al cubículo ' + espacio,
+          } 
+    ];
+
     const paso5_4 = [ 
-      // ...images5_1,
-      // ...images6_1,
-      // ...images5_2,
-      // ...images6_2,
-      // ...images5_3,
-      // ...images6_3,
       {
         source:{
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso3_Escaleras-min.jpg?alt=media&token=2e6e4db6-20b5-44db-87eb-626c71b5e538',
@@ -185,18 +348,35 @@ returner(){
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso4_Frontal-min.jpg?alt=media&token=44c71f4e-256f-4fba-a62a-90faaf01522b',
           uri: 'https://i.imgur.com/pFAExpx.jpg'
         },
-        title: 'Estas en el cuarto piso del Edificio 5.',
+        title: 'Estás en el cuarto piso del Edificio 5.',
         }   
     ];
 
+    const paso5_4_der = [ 
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso3_Escaleras-min.jpg?alt=media&token=2e6e4db6-20b5-44db-87eb-626c71b5e538',
+          uri: 'https://i.imgur.com/FVfzydW.jpg'
+        },
+        title: 'Sube las escaleras',
+      },
+        {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso4_Frontal-min.jpg?alt=media&token=44c71f4e-256f-4fba-a62a-90faaf01522b',
+          uri: 'https://i.imgur.com/pFAExpx.jpg'
+        },
+        title: 'Dirígete derecho y gira hacia la derecha.',
+        },
+        {
+          source:{
+            //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso4_Frontal-min.jpg?alt=media&token=44c71f4e-256f-4fba-a62a-90faaf01522b',
+            uri: 'https://i.imgur.com/mQ5wcZ3.jpg' //foto pasillo derecho
+          },
+          title: 'Dirígete al cubícuolo '+espacio
+          }  
+    ];
+
     const paso6_4 = [ 
-      // ...images5_1,
-      // ...images6_1,
-      // ...images5_2,
-      // ...images6_2,
-      // ...images5_3,
-      // ...images6_3,
-      // ...images5_4,
       {
         source:{
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso4_Escaleras-min.jpg?alt=media&token=be498a7a-1605-4896-8e03-b2f45e678e87',
@@ -209,19 +389,105 @@ returner(){
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso4_Frontal-min.jpg?alt=media&token=ec5e0aed-7c3c-4738-854e-19561f977cf3',
           uri: 'https://i.imgur.com/jPHQlZC.jpg'
         },
-        title: 'Estas en el cuarto piso del Edificio 6.',
+        title: 'Estás en el cuarto piso del Edificio 6.',
         }   
     ];
 
-    const images5_1 = paso5_1;
-    const images6_1 = [...paso5_1, ...paso6_1];
-    const images5_2 = [...paso5_1, ...paso6_1, ...paso5_2];
-    const images6_2 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2];
-    const images5_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3];
-    const images6_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3];
-    const images5_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4];
-    const images6_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4, ...paso6_4];
+    const paso6_4_der = [ 
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso4_Escaleras-min.jpg?alt=media&token=be498a7a-1605-4896-8e03-b2f45e678e87',
+          uri: 'https://i.imgur.com/LP1dsrp.jpg'
+        },
+        title: 'Sube las escaleras',
+      },
+        {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso4_Frontal-min.jpg?alt=media&token=ec5e0aed-7c3c-4738-854e-19561f977cf3',
+          uri: 'https://i.imgur.com/nsgi1EO.jpg'
+        },
+        title: 'Gira a la derecha y ve al cubículo ' + espacio,
+        }   
+    ];
 
+    const paso6_4_izq = [ 
+      {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso4_Escaleras-min.jpg?alt=media&token=be498a7a-1605-4896-8e03-b2f45e678e87',
+          uri: 'https://i.imgur.com/LP1dsrp.jpg'
+        },
+        title: 'Sube las escaleras',
+      },
+        {
+        source:{
+          //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso4_Frontal-min.jpg?alt=media&token=ec5e0aed-7c3c-4738-854e-19561f977cf3',
+          uri: 'https://i.imgur.com/Ty1DTdX.jpg'
+        },
+        title: 'Gira a la izquierda y ve al cubículo ' + espacio,
+        }   
+    ];
+
+    const images5_1 = [...paso5_1, ...paso5_1_izq];
+    let images6_1;
+    if (espacio>12){
+      images6_1 = [...paso5_1, ...paso6_1,...paso6_1_def];
+    }else{
+      images6_1 = [...paso5_1, ...paso6_1, ...paso6_1_der];
+    }
+
+    //const images5_2 = [...paso5_1, ...paso6_1, ...paso5_2]; paso6_2_fro
+    let images5_2;
+    if (espacio<20){
+      images5_2 = [...paso5_1, ...paso6_1, ...paso5_2_der];
+    }else{
+      images5_2 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2_fro]; 
+    }
+
+    let images6_2;
+    if (espacio>0 && espacio<8){
+      images6_2 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2_der];
+    }else if (espacio>7 && espacio<13){
+      images6_2 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso6_2_fro];
+    }else{
+      images6_2 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2_izq];
+    }
+
+    //const images5_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3];
+    let images5_3
+    if (espacio<20){
+      images5_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3_der];
+    }else{
+      images5_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_2_fro];
+    }
+
+    let images6_3;
+    if (espacio>0 && espacio<8){
+      images6_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3_der];
+    }else if (espacio>7 && espacio<13){
+      images6_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso6_2_fro];
+    }else{
+      images6_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3_izq];
+    }
+
+    //const images5_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4];
+    let images5_4;
+    if (espacio<20){
+      images5_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4_der];
+    }else{
+      images5_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4, ...paso6_2_fro];
+    }
+
+
+    let images6_4;
+    if (espacio>0 && espacio<8){
+      images6_4 =[...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4, ...paso6_4_der];
+    }else if (espacio>7 && espacio<13){
+      images6_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4, ...paso6_4, ...paso6_2_fro];
+    }else{
+      images6_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4, ...paso6_4_izq];
+    }
+
+    //images6_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4, ...paso6_4];
 
 
     switch(edificioPiso) {
@@ -253,24 +519,7 @@ returner(){
           images = [];
   }
 
-    
-    // const edificio5 =
-    // <View style={{margin: 10, alignItems: 'center'}}>
-    // <Image 
-    // style={{width: 300, height: 150}}
-    // source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio_Entrada.jpg?alt=media&token=63466749-c2d2-4a67-a02a-9df7492db23a' }}
-    // />
-    // <Text style={{fontSize: 16}}>Entra al Edificio 5</Text>
-    // </View>
-    
-    // const edificio6 = 
-    // <View style={{margin: 10, alignItems: 'center'}}>
-    // <Image 
-    // style={{width: 300, height: 150}}
-    // source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio_Entrada.jpg?alt=media&token=63466749-c2d2-4a67-a02a-9df7492db23a' }}
-    // />
-    //  <Text style={{fontSize: 16}}>Entra al Edificio 6</Text>
-    // </View>
+  
 
 //     switch(edificioPiso) {
 //     case 51:
@@ -279,24 +528,6 @@ returner(){
 //         break;
 //     case 52:
 //         floor = piso2_5;
-//         break;
-//     case 53:
-//         floor = piso3_5;
-//         break;
-//     case 54:
-//         floor = piso4_5;
-//         break;
-//     case 61:
-//         floor = piso1_6;
-//         break;
-//     case 62:
-//         floor = piso2_6;
-//         break;
-//     case 63:
-//         floor = piso3_6;
-//         break;
-//     case 64:
-//         floor = piso4_6;
 //         break;
 //     // default:
 //     //     floor = "I have never heard of that fruit...";
@@ -374,10 +605,6 @@ returner(){
             />
     
     {/* {edificio==6 ? edificio6 : edificio5} */}
-    
-    {/* {this.displayJsxMessage()} */}
-
-    {/* {floor} */}
 
     <View>
     {images.map((image, index) => (

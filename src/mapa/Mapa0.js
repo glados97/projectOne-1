@@ -83,11 +83,22 @@ class Mapa0 extends Component {
           latitudeDelta: 0.1,
           longitudeDelta: 0.05,
          });
+        //  this.checkLocation(position.coords.latitude,position.coords.longitude)
+         //this.state.position.latitude 
        },
        (error) => this.setState({ error: error.message }),
        { enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 },
      );
    }
+
+  //  checkLocation(lat, long){
+  //   if(lat>=25.655605&&lat<=25.665282&&long>=-100.423226&&long<=-100.416242){
+  //     return true;
+  //   } else {
+  //     Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
+  //     return false;
+  //   }
+  // }
 
    returner(){
     this.props.navigator.pop();

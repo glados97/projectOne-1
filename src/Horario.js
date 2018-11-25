@@ -106,14 +106,14 @@ linker(data){
     var hora = moment().tz('America/Mexico_City').format('kkmm');
     var horaT = moment().tz('America/Mexico_City').format('h:mm');
     var x;
-    const disp = <Text style={{fontWeight:"300", fontSize: 26, color: '#629632', textAlign:'center', margin: 10}}> DISPONIBLE </Text>;
-    const nodisp = <Text style={{fontWeight:"300", fontSize: 26, color: '#cc0000', textAlign:'center', margin: 10}}> NO DISPONIBLE </Text>;
+    let disp = <Text style={{fontWeight:"300", fontSize: 26, color: '#629632', textAlign:'center', margin: 10}}> DISPONIBLE </Text>;
+    let nodisp = <Text style={{fontWeight:"300", fontSize: 26, color: '#cc0000', textAlign:'center', margin: 10}}> NO DISPONIBLE </Text>;
     //moment(hora).isBetween(inicioT,inicioF);
-    x = disp;
+    x = nodisp;
 
     arrayholder.forEach(function (arrayholder, index) {
-      if(moment(hora).isBetween(arrayholder.inicio,arrayholder.fin)){
-        x = nodisp;
+      if(!moment(hora).isBetween(arrayholder.inicio,arrayholder.fin)){
+        x = disp;
         return false;
       }
     });
