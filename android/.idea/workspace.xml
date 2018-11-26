@@ -3998,10 +3998,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
   </component>

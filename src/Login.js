@@ -41,11 +41,43 @@ componentDidMount() {
       },
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
     );
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position);
+
+       this.state = {
+         latitude: position.coords.latitude,
+         longitude: position.coords.longitude,
+         error: null,
+       };
+
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          error: null,
+         latitudeDelta: 0.1,
+         longitudeDelta: 0.05,
+        });
+       this.checkLocation(position.coords.latitude,position.coords.longitude)
+        //this.state.position.latitude 
+      },
+      (error) => this.setState({ error: error.message }),
+      { enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 },
+    );
 }
 
 componentWillUnmount() {
     NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectionChange);
 }
+
+ checkLocation(lat, long){
+    if(lat>=25.655605&&lat<=25.665282&&long>=-100.423226&&long<=-100.416242){
+      return true;
+    } else {
+      Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
+      return false;
+    }
+  }
 
 handleConnectionChange = (isConnected) => {
         this.setState({ status: isConnected });
@@ -75,11 +107,18 @@ constructor (props) {
     super(props)
     this.state = {
         email: "santiagog94@gmail.com",
-        password: "pass123"
+        password: "pass123",
+        // latitude: position.coords.latitude,
+        // longitude: position.coords.longitude,
     }
 }
-
+// this.checkLocation(position.coords.latitude,position.coords.longitude)
+//  Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
 submitme(){
+
+  if(!this.checkLocation(this.state.latitude,this.state.longitude)){
+    Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
+  }else{
     firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((user)=>{
         
         if (firebase.auth().currentUser.emailVerified){
@@ -87,12 +126,14 @@ submitme(){
         this.props.navigator.immediatelyResetRouteStack([{
             component: Menu
         }]); 
-      }else {
+      }
+      else {
         Alert.alert('Atención', 'Favor de verificar email')
       }
     }).catch(function(e){
       Alert.alert('Error', 'Email o contraseña incorrecta')
     })
+  }
 }
 
 linker(comp){

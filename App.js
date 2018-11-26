@@ -39,12 +39,6 @@ import MapViewDirections from 'react-native-maps-directions';
 //     messagingSenderId: "309866393253"
 // });
 
-// const Drawer = createDrawerNavigator(
-//   {
-//     First: Home,
-//     Second: Mapa,
-//   }
-// );
 
 class App extends Component {
 
@@ -57,7 +51,7 @@ class App extends Component {
   render(){
     return(
       <Navigator
-      initialRoute={{component: Home}}
+      initialRoute={{component: Login}}
       renderScene={this.renderScene.bind(this)} />
     )
   }
