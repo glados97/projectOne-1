@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, TouchableHighlight, Image, Alert, FlatList, Act
 import { Icon, Button } from 'react-native-elements'
 import Home from './Home';
 import Mapa from './Mapa';
+import firebaseApp from './Firebase';
+import firebase from 'firebase';
+import Login from './Login';
 
 import Mapa0 from './mapa/Mapa0';
 import Mapa1 from './mapa/Mapa1';

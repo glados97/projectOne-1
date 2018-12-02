@@ -69,7 +69,7 @@ submitme(){
               placeholderTextColor={"black"}
               autoCorrect={false}
           />
-          <Text style={styles.txtval1}>Minimo 6 caracteres y máximo 12 caracteres</Text>
+          <Text style={styles.txtval1}>Mínimo 6 caracteres y máximo 12 caracteres</Text>
         </View>
 
           <TouchableHighlight onPress={this.submitme.bind(this)} underlayColor={'transparent'}>

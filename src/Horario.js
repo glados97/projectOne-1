@@ -141,7 +141,7 @@ linker(data){
       </View>
 
       <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
-        {x}
+        <Text style={{fontWeight:"300", fontSize: 26, textAlign:'center', margin: 10}}>Horario de hoy</Text>
       </View>
 
       <View
@@ -199,7 +199,7 @@ linker(data){
       </View>
 
       <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
-        {x}
+        <Text style={{fontWeight:"300", fontSize: 26, textAlign:'center', margin: 10}}>Horario de hoy</Text>
       </View>
 
       <View
@@ -252,7 +252,7 @@ linker(data){
             </View>
 
             <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
-              {x}
+              <Text style={{fontWeight:"300", fontSize: 26, textAlign:'center', margin: 10}}>Horario de hoy</Text>
             </View>
 
             <View
@@ -305,7 +305,7 @@ linker(data){
           </View>
 
           <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
-            {x}
+            <Text style={{fontWeight:"300", fontSize: 26, textAlign:'center', margin: 10}}>Horario de hoy</Text>
           </View>
 
           <View
@@ -358,7 +358,7 @@ linker(data){
         </View>
 
         <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
-          {x}
+          <Text style={{fontWeight:"300", fontSize: 26, textAlign:'center', margin: 10}}>Horario de hoy</Text>
         </View>
 
         <View
@@ -411,7 +411,7 @@ linker(data){
         </View>
 
         <View style={{marginTop:10, marginRight: 10, marginLeft: 10}}>
-          {x}
+          <Text style={{fontWeight:"300", fontSize: 26, textAlign:'center', margin: 10}}>Horario de hoy</Text>
         </View>
 
         <View

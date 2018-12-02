@@ -62,28 +62,32 @@ const cordenadas =[
 
 class Mapa4 extends Component {
 
+  constructor (props) {
+    super(props)
+    this.state = {
+        latitude: null,
+        longitude:null,
+        error: null
+    }
+  }
   componentDidMount() {
 
     navigator.geolocation.getCurrentPosition(
        (position) => {
          console.log(position);
 
-        this.state = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          error: null,
-        };
-
          this.setState({
-           latitude: position.coords.latitude,
-           longitude: position.coords.longitude,
-           error: null,
-          latitudeDelta: 0.1,
-          longitudeDelta: 0.05,
-         });
+          region: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            error: null,
+           latitudeDelta: 0.01,
+           longitudeDelta: 0.01,
+           }
+          });
        },
-       (error) => this.setState({ error: error.message }),
-       { enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 },
+       (error) => alert(JSON.stringify(error)),
+       //{ enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 },
      );
    }
 
@@ -92,6 +96,7 @@ class Mapa4 extends Component {
   }
 
   render() {
+
    //console.log(this.setState);
     return (
       <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
@@ -108,8 +113,8 @@ class Mapa4 extends Component {
                 />
       </View>
 <MapView
-  region={this.state}
-  initialRegion={this.state}
+  region={this.state.region}
+  //initialRegion={this.state}
   
   style={{ flex: 1 }}
          showsUserLocation={true}
@@ -120,12 +125,12 @@ class Mapa4 extends Component {
 
 <Marker
   coordinate = {cordenadas[4]}
-  //title = "EDIFICIO 1 Y 2"
-         />
+  title= "Edificio 3 y 4"
+  />
 
 
   <MapViewDirections
-    origin = {this.state}
+    origin = {this.state.region}
     destination = {cordenadas[4]}
             strokeWidth = {4}
             strokeColor = "red"

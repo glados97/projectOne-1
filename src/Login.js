@@ -45,12 +45,6 @@ componentDidMount() {
       (position) => {
         console.log(position);
 
-       this.state = {
-         latitude: position.coords.latitude,
-         longitude: position.coords.longitude,
-         error: null,
-       };
-
         this.setState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
@@ -61,8 +55,7 @@ componentDidMount() {
        this.checkLocation(position.coords.latitude,position.coords.longitude)
         //this.state.position.latitude 
       },
-      (error) => this.setState({ error: error.message }),
-      { enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 },
+      (error) => alert(JSON.stringify(error))
     );
 }
 
@@ -70,8 +63,20 @@ componentWillUnmount() {
     NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectionChange);
 }
 
- checkLocation(lat, long){
+//  checkLocation(lat, long){
+//     if(!(lat<=25.659435 && long>=-100.417853) &&!(lat>=25.664658 && long<=-100.422034)){
+//       return true;
+//     } else {
+//       Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
+//       return false;
+//     }
+//   }
+  // 25.664658, -100.422034
+  // 25.659435, -100.417853
+
+   checkLocation(lat, long){
     if(lat>=25.655605&&lat<=25.665282&&long>=-100.423226&&long<=-100.416242){
+      //Alert.alert('Atención', 'Estás');
       return true;
     } else {
       Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
@@ -108,17 +113,18 @@ constructor (props) {
     this.state = {
         email: "santiagog94@gmail.com",
         password: "pass123",
-        // latitude: position.coords.latitude,
-        // longitude: position.coords.longitude,
+        latitude: null,
+        longitude: null,
+        error: null
     }
 }
 // this.checkLocation(position.coords.latitude,position.coords.longitude)
 //  Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
 submitme(){
 
-  if(!this.checkLocation(this.state.latitude,this.state.longitude)){
-    Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
-  }else{
+  // if(!this.checkLocation(this.state.latitude,this.state.longitude)){
+  //   Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
+  // }else{
     firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((user)=>{
         
         if (firebase.auth().currentUser.emailVerified){
@@ -133,7 +139,7 @@ submitme(){
     }).catch(function(e){
       Alert.alert('Error', 'Email o contraseña incorrecta')
     })
-  }
+  // }
 }
 
 linker(comp){
@@ -181,7 +187,7 @@ linker(comp){
                 returnKeyType="go"
                 ref={(input) => this.password = input}
             />
-            <Text style={styles.txtval1}>Minimo 6 caracteres y máximo 12 caracteres</Text>
+            <Text style={styles.txtval1}>Mínimo 6 caracteres y máximo 12 caracteres</Text>
          </View>
 
             <TouchableHighlight onPress={this.linker.bind(this, Forgot)} underlayColor={'transparent'}>

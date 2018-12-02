@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Image, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, Image, Dimensions, ScrollView, Alert } from 'react-native';
 import Direcciones from './Direcciones';
 import Horario from './Horario';
+import { Navigator } from 'react-native-deprecated-custom-components';
 import firebase from 'firebase';
+import { BackHandler } from 'react-native';
 import Communications from 'react-native-communications';
 
 const { height } = Dimensions.get('window');
@@ -26,6 +28,25 @@ onContentSizeChange = (contentWidth, contentHeight) => {
 returner(){
     this.props.navigator.pop();
 }
+
+// componentWillMount=()=> {
+//     BackHandler.addEventListener('hardwareBackPress', ()=>{return true});
+//   }
+
+// componentDidMount() {
+//   BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
+// }
+
+// componentWillUnmount() {
+//   BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
+// }
+
+// onBackPress= () => {
+//   Alert.alert('Atención', 'Boton')
+//   this.props.navigator.pop();
+//   return true;
+// }
+
 
 linker(data){
   console.log(this.state.data)
@@ -145,7 +166,8 @@ linker2(data){
       
       <TouchableHighlight onPress={this.linker.bind(this, Direcciones )} underlayColor={'transparent'}>
                     <View style={styles.boton}>
-                        <Text style={styles.txtboton}>Mostrar Ruta a Cubículo</Text>
+                        <Text style={styles.txtboton}>Mostrar Ruta</Text>
+                        <Text style={styles.txtboton}>a Cubículo</Text>
                     </View>
       </TouchableHighlight>
 
@@ -161,11 +183,6 @@ linker2(data){
                     </View>
       </TouchableHighlight>
 
-      {/* <TouchableHighlight onPress={() => Communications.email(correo,null,null,null,null)} underlayColor={'transparent'}>
-                    <View style={styles.boton2}>
-                        <Text style={styles.txtboton}>Enviar Correo</Text>
-                    </View>
-      </TouchableHighlight> */}
 
  {correo!='ayudaenlinea@udem.edu' ? <TouchableHighlight onPress={() => Communications.email([correo],null,null,null,null)} underlayColor={'transparent'}>
                     <View style={styles.boton2}>

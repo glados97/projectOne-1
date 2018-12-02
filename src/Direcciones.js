@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Image, Dimensions, ScrollView } from 'react-native';
 import firebase from 'firebase';
 import ImageView from 'react-native-image-view';
+import { BackHandler } from 'react-native';
 
 const { height } = Dimensions.get('window');
 const {width} = Dimensions.get('window');
@@ -16,6 +17,18 @@ constructor (props) {
         isImageViewVisible: false,
         imageIndex: 0
     }
+}
+
+componentDidMount() {
+  BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
+}
+
+componentWillUnmount() {
+  BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
+}
+
+onBackPress = () => {
+  return true;
 }
 
 

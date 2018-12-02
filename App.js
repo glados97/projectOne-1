@@ -29,6 +29,7 @@ import {DrawerNavigator} from 'react-navigation'
 import {createDrawerNavigator} from 'react-navigation'
 import MapView from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
+import {BackHandler} from 'react-native'
 
 // firebase.initializeApp({
 //     apiKey: "AIzaSyAdLGWXdswQlUxVS5UXQXD6UrXzl9N4mXg",
@@ -41,6 +42,23 @@ import MapViewDirections from 'react-native-maps-directions';
 
 
 class App extends Component {
+
+  // componentWillMount=()=> {
+  //   BackHandler.addEventListener('hardwareBackPress', ()=>{return true});
+  // }
+  
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
+  }
+  
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
+  }
+  
+  onBackPress() {
+    Alert.alert('Atención', 'Boton')
+    return false;
+  }
 
 
   renderScene(route, navigator){

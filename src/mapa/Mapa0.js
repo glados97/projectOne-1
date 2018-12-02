@@ -61,33 +61,40 @@ const cordenadas =[
 ];
 
 class Mapa0 extends Component {
-/* returner(){
-    this.props.navigator.pop();
-}*/
+constructor (props) {
+  super(props)
+  this.state = {
+      latitude: null,
+      longitude:null,
+      error: null
+  }
+}
   componentDidMount() {
-
     navigator.geolocation.getCurrentPosition(
        (position) => {
          console.log(position);
 
-        this.state = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          error: null,
-        };
+        // this.state = {
+        //   latitude: position.coords.latitude,
+        //   longitude: position.coords.longitude,
+        //   error: null,
+        // };
 
          this.setState({
+          region: {
            latitude: position.coords.latitude,
            longitude: position.coords.longitude,
            error: null,
-          latitudeDelta: 0.1,
-          longitudeDelta: 0.05,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
+          }
          });
         //  this.checkLocation(position.coords.latitude,position.coords.longitude)
          //this.state.position.latitude 
        },
-       (error) => this.setState({ error: error.message }),
-       { enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 },
+       (error) => alert(JSON.stringify(error)),
+      // {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+       
      );
    }
 
@@ -105,6 +112,7 @@ class Mapa0 extends Component {
   }
 
   render() {
+    console.log(this.state.latitude);
     return (
       <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
       <View style={{flexDirection:'row', marginBottom: 20, backgroundColor: '#F5F5F5'}}>
@@ -120,30 +128,33 @@ class Mapa0 extends Component {
                 />
       </View>
 <MapView
-  region={this.state}
-  initialRegion={this.state}
+  region={this.state.region}
+  // initialRegion={{
+  //    latitude: this.state.latitude,
+  //    longitude:this.state.longitude,
+  //   }}
+  //initialRegion={this.state.region}
   
   style={{ flex: 1 }}
-         showsUserLocation={true}
+        showsUserLocation={true}
         followUserLocation = {true}
-         zoomEnabled = {true}
+        zoomEnabled = {true}
+        showsMyLocationButton={true}
 >
 
-
 <Marker
-  coordinate = {cordenadas[0]}/>
-
-
-  <MapViewDirections
-    origin = {this.state}
-    destination = {cordenadas[0]}
-            strokeWidth = {4}
-            strokeColor = "red"
-            apikey = { "AIzaSyDUas0-SmxYDsRt1Pidw60DMWAfQgA8cPE" }
-            mode = "walking"
+  coordinate = {cordenadas[0]}
+  title="Radio UDEM"
   />
 
-  
+<MapViewDirections
+    origin = {this.state.region}
+    destination = {cordenadas[0]}
+    strokeWidth = {4}
+    strokeColor = "red"
+    apikey = { "AIzaSyDUas0-SmxYDsRt1Pidw60DMWAfQgA8cPE" }
+    mode = "walking"
+  />
 </MapView>
 </View>
     );

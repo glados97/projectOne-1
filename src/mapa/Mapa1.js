@@ -62,28 +62,32 @@ const cordenadas =[
 
 class Mapa1 extends Component {
 
+  constructor (props) {
+    super(props)
+    this.state = {
+        latitude: null,
+        longitude:null,
+        error: null
+    }
+  }
   componentDidMount() {
 
     navigator.geolocation.getCurrentPosition(
        (position) => {
          console.log(position);
 
-        this.state = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          error: null,
-        };
-
          this.setState({
-           latitude: position.coords.latitude,
-           longitude: position.coords.longitude,
-           error: null,
-          latitudeDelta: 0.1,
-          longitudeDelta: 0.05,
-         });
+          region: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            error: null,
+           latitudeDelta: 0.01,
+           longitudeDelta: 0.01,
+           }
+          });
        },
-       (error) => this.setState({ error: error.message }),
-       { enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 },
+       (error) => alert(JSON.stringify(error)),
+       //{ enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 },
      );
    }
 
@@ -109,8 +113,8 @@ class Mapa1 extends Component {
                 />
       </View>
 <MapView
-  region={this.state}
-  initialRegion={this.state}
+  region={this.state.region}
+  //initialRegion={this.state}
   
   style={{ flex: 1 }}
          showsUserLocation={true}
@@ -121,20 +125,18 @@ class Mapa1 extends Component {
 
 <Marker
   coordinate = {cordenadas[1]}
-  //title = "EDIFICIO 1 Y 2"
-         />
+  title= "CCU, BANCOMER Y LA TROYA"
+  />
 
 
   <MapViewDirections
-    origin = {this.state}
+    origin = {this.state.region}
     destination = {cordenadas[1]}
             strokeWidth = {4}
             strokeColor = "red"
             apikey = { "AIzaSyDUas0-SmxYDsRt1Pidw60DMWAfQgA8cPE" }
             mode = "walking"
   />
-
-  
 </MapView>
 </View>
     );
