@@ -11,12 +11,13 @@ constructor (props) {
     }
 }
 
+//método de navegación para regresarse a la pantalla anterior
 returner(){
     this.props.navigator.pop();
 }
 
+//Método de Firebase para enviar correo a usuario para resetear password 
 submitme(){
- 
     firebase.auth().sendPasswordResetEmail(this.state.email).then(function(user){
         Alert.alert('Atencion', 'Revisa email para reestablecer contraseña');
     }).catch(function(e){
@@ -129,9 +130,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: 'center',
         fontSize: 18,
-        //backgroundColor: "cyan",
         marginLeft: 20,
         marginRight: 20,
+        borderWidth: 0.5,
+        borderRadius: 20
       },
       bigbutton: {
         height: 50,

@@ -15,10 +15,12 @@ constructor (props) {
     }
 }
 
+//método de navegación para regresarse a la pantalla anterior
 returner(){
     this.props.navigator.pop();
 }
 
+//método de navegación que te mande a la pantalla indicada en el botón junto con los datos de los colaboradores
 linker(comp){
     this.props.navigator.push({
         component: comp,
@@ -82,18 +84,6 @@ linker(comp){
               source={require('./images/udem2.png')}
               />
         </View>
-      
-      {/* <TouchableHighlight onPress={this.linker.bind(this, Home )} underlayColor={'transparent'}>
-                    <View style={styles.boton}>
-                        <Text style={styles.txtboton}>Mostrar Direcciones</Text>
-                    </View>
-      </TouchableHighlight>
-
-      <TouchableHighlight underlayColor={'transparent'}>
-                    <View style={styles.boton}>
-                        <Text style={styles.txtboton}>Mostrar Horario</Text>
-                    </View>
-      </TouchableHighlight> */}
 
         
       </View>
@@ -110,12 +100,8 @@ const styles = StyleSheet.create({
       },
       container2: {
         backgroundColor: '#F9FC65',
-        // alignItems: 'center',
-        // justifyContent: 'flex-start',
-        // alignSelf: "center",
       },
       containerIcon: {
-        // margin: 5,
       },
       welcome: {
         alignSelf: "center",

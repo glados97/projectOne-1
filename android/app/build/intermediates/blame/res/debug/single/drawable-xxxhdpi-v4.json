@@ -76,6 +76,10 @@
         "source": "C:\\Users\\santi\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.0.0.aar\\a9027895ae8b830e2579819560cc46ef\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\node_modules_reactnavigationstack_dist_views_assets_backicon.png",
+        "source": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\src\\main\\res\\drawable-xxxhdpi\\node_modules_reactnavigationstack_dist_views_assets_backicon.png"
+    },
+    {
         "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
         "source": "C:\\Users\\santi\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.0.0.aar\\a9027895ae8b830e2579819560cc46ef\\res\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },

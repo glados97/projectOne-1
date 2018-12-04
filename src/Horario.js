@@ -26,6 +26,9 @@ class Horario extends Component {
         this.arrayholder = [];
       }
 
+      //Método para obtener los valores del nodo "horarios" de Firebase e insertarlos en un arreglo.
+      //Se insertan solamente los valores que coinciden con IDAlternativo del nodo "colaboradores"
+      //con IdEmpleado de "horarios"
       componentDidMount() {
 
         let id = Number.parseInt(this.props.data.idAlternativo, 10)
@@ -61,6 +64,7 @@ class Horario extends Component {
         })
       }
 
+//método para definir la separación entre cada despliegue de materia del colaborador
 renderSeparator = () => {
 return (
     <View
@@ -74,16 +78,18 @@ return (
 );
 };
 
+//método para obtener la altura de la pantalla al momento que el contenido cambie
 onContentSizeChange = (contentWidth, contentHeight) => {
   // Save the content height in state
   this.setState({ screenHeight: contentHeight });
 };
 
-
+//método de navegación para regresarse a la pantalla anterior
 returner(){
     this.props.navigator.pop();
 }
 
+//método de navegación que te mande a la pantalla de Direcciones junto con los datos de los colaboradores
 linker(data){
   console.log(this.state.data)
   this.props.navigator.push({
@@ -95,20 +101,18 @@ linker(data){
 }
 
 
-
   render() {
     console.disableYellowBox = true;
     const scrollEnabled = this.state.screenHeight > height;
     const {arrayholder} = this.state;
     var date = moment.locale('es') 
-    var now = moment().tz('America/Mexico_City').format('dddd, MMMM Do YYYY, H:mm');
-    var dia = moment().tz('America/Mexico_City').format('dddd');
-    var hora = moment().tz('America/Mexico_City').format('kkmm');
+    var now = moment().tz('America/Mexico_City').format('dddd, MMMM Do YYYY, H:mm'); //fecha actual en día de la semana, mes, día, año, hora y minutos
+    var dia = moment().tz('America/Mexico_City').format('dddd'); //día de la semana
+    var hora = moment().tz('America/Mexico_City').format('kkmm'); //hora actual
     var horaT = moment().tz('America/Mexico_City').format('h:mm');
     var x;
     let disp = <Text style={{fontWeight:"300", fontSize: 26, color: '#629632', textAlign:'center', margin: 10}}> DISPONIBLE </Text>;
     let nodisp = <Text style={{fontWeight:"300", fontSize: 26, color: '#cc0000', textAlign:'center', margin: 10}}> NO DISPONIBLE </Text>;
-    //moment(hora).isBetween(inicioT,inicioF);
     x = nodisp;
 
     arrayholder.forEach(function (arrayholder, index) {
@@ -118,6 +122,7 @@ linker(data){
       }
     });
 
+    //despliegue de horario de colaborador por día 
     if (dia=="lunes"){
     return (
     <View style={{backgroundColor: '#F5F5F5'}}>
@@ -156,6 +161,7 @@ linker(data){
       scrollEnabled={scrollEnabled}
       onContentSizeChange={this.onContentSizeChange}
       data={arrayholder}
+      //se despliegue materia, hora inicio y hora fin de cada materia del colaborador
       renderItem={({item, index}) =>{
         if (item.lunes!=null){
           return(  

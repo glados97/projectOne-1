@@ -5,9 +5,6 @@ import { Marker } from 'react-native-maps';
 import MapView from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
-//var currentLAT=location.coords.latitude;
-//var currentLONG =location.coords.longitude;
-
 const cordenadas =[
         {
               latitude: 25.661862,
@@ -69,17 +66,12 @@ constructor (props) {
       error: null
   }
 }
+
+  //Método para obtener la posición actual (latitud y longitud) del usuario 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
        (position) => {
          console.log(position);
-
-        // this.state = {
-        //   latitude: position.coords.latitude,
-        //   longitude: position.coords.longitude,
-        //   error: null,
-        // };
-
          this.setState({
           region: {
            latitude: position.coords.latitude,
@@ -93,20 +85,12 @@ constructor (props) {
          //this.state.position.latitude 
        },
        (error) => alert(JSON.stringify(error)),
-      // {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
        
      );
    }
 
-  //  checkLocation(lat, long){
-  //   if(lat>=25.655605&&lat<=25.665282&&long>=-100.423226&&long<=-100.416242){
-  //     return true;
-  //   } else {
-  //     Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
-  //     return false;
-  //   }
-  // }
-
+   
+//método de navegación para regresarse a la pantalla anterior
    returner(){
     this.props.navigator.pop();
   }

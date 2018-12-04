@@ -20,11 +20,13 @@ constructor (props) {
     }
 }
 
+//método para obtener la altura de la pantalla al momento que el contenido cambie
 onContentSizeChange = (contentWidth, contentHeight) => {
   // Save the content height in state
   this.setState({ screenHeight: contentHeight });
 };
 
+//método de navegación para regresarse a la pantalla anterior
 returner(){
     this.props.navigator.pop();
 }
@@ -47,7 +49,7 @@ returner(){
 //   return true;
 // }
 
-
+//método de navegación que te mande a la pantalla de Direcciones junto con los datos de los colaboradores
 linker(data){
   console.log(this.state.data)
   this.props.navigator.push({
@@ -58,6 +60,7 @@ linker(data){
   })
 }
 
+//método de navegación que te mande a la pantalla de Horario junto con los datos de los colaboradores
 linker2(data){
   console.log(this.state.data)
   this.props.navigator.push({

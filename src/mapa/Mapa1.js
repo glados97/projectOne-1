@@ -70,8 +70,9 @@ class Mapa1 extends Component {
         error: null
     }
   }
-  componentDidMount() {
 
+  //Método para obtener la posición actual (longitud y latitud) del usuario
+  componentDidMount() {
     navigator.geolocation.getCurrentPosition(
        (position) => {
          console.log(position);
@@ -91,13 +92,12 @@ class Mapa1 extends Component {
      );
    }
 
+   //método de navegación para regresarse a la pantalla anterior
    returner(){
     this.props.navigator.pop();
   }
 
   render() {
-
-   //console.log(this.setState);
     return (
       <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
       <View style={{flexDirection:'row', marginBottom: 20, backgroundColor: '#F5F5F5'}}>
@@ -117,25 +117,25 @@ class Mapa1 extends Component {
   //initialRegion={this.state}
   
   style={{ flex: 1 }}
-         showsUserLocation={true}
-        followUserLocation = {true}
-         zoomEnabled = {true}
+  showsUserLocation={true}
+  followUserLocation = {true}
+  zoomEnabled = {true}
 >
 
 
 <Marker
   coordinate = {cordenadas[1]}
-  title= "CCU, BANCOMER Y LA TROYA"
+  title= "CCU, BANCOMER Y LA CAFETERÍA"
   />
 
 
   <MapViewDirections
     origin = {this.state.region}
     destination = {cordenadas[1]}
-            strokeWidth = {4}
-            strokeColor = "red"
-            apikey = { "AIzaSyDUas0-SmxYDsRt1Pidw60DMWAfQgA8cPE" }
-            mode = "walking"
+    strokeWidth = {4}
+    strokeColor = "red"
+    apikey = { "AIzaSyDUas0-SmxYDsRt1Pidw60DMWAfQgA8cPE" }
+    mode = "walking"
   />
 </MapView>
 </View>

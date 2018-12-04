@@ -12,42 +12,6 @@ console.ignoredYellowBox = ['Setting a timer'];
 
 class Home extends Component {
 
-  // constructor (props) {
-  //   super(props)
-  //   this.state = {
-  //       searchText: "",
-  //       //items: []
-  //   }
-  //   this.itemsRef = this.getRef().child('/');
-  // }
-
-  // // getRef() {
-  // //   return firebaseApp.database().ref();
-  // // }
-
-  // listenForItems(itemsRef) {
-  //   itemsRef.on('value', (snap) => {
-
-  //     // get children as an array
-  //     var items = [];
-  //     snap.forEach((child) => {
-  //       items.push({
-  //         Nombre: child.val().Nombre,
-  //         Cubiculo: child.val().Cubiculo
-  //       });
-  //     });
-
-  //     this.setState({
-  //       dataSource: this.state.dataSource.cloneWithRows(items)
-  //     });
-
-  //   });
-  // }
-
-  // // componentDidMount() {
-  // //   this.listenForItems(this.itemsRef);
-  // // }
-
   constructor(props) {
     super(props);
 
@@ -60,8 +24,9 @@ class Home extends Component {
     this.arrayholder = [];
   }
 
+  //Método para obtenerl los valores del nodo "colaboradores" de Firebase
+  //Se guardan los distintos atributos en un arreglo
   componentDidMount() {
-
     firebase.database().ref("/colaboradores").on('value', snapshot =>
     {
       snapshot.forEach(child => {
@@ -84,9 +49,9 @@ class Home extends Component {
 
   }
 
+  //Método para actualizar el estado de los datos
   makeRemoteRequest = () => {
     this.setState({ loading: true });
-
     let recentPostsRef = firebase.database().ref("/colaboradores");
     recentPostsRef.once('value')
       .then((snapshot) => {
@@ -96,8 +61,6 @@ class Home extends Component {
           error: res.error || null,
           loading: false,
         });
-      //  this.arrayholder = snapshot.val();
-      //console.log(this.arrayholder);
       })
       .catch(error => {
         this.setState({ error, loading: false });
@@ -140,8 +103,9 @@ class Home extends Component {
     );
   };
 
+  //Método para filtrar por nombre, departamento y ubicación, así como para ordenar resultados alfabéticamente
+  //El texto ingresado se convierte a mayúsculas para proceder con el filtro
   searchFilterFunction = text => {
-
     this.arrayholder.sort(function(a, b) {
       return a.nombre.localeCompare(b.nombre);
    });
@@ -175,9 +139,6 @@ class Home extends Component {
             source={require('./images/search.png')}
             />
     
-      {/* <TouchableHighlight style= {styles.bigbutton} onPress={this.submitme.bind(this)} underlayColor={'transparent'}>
-            <Text style={styles.txtboton}>LOG OUT</Text>
-      </TouchableHighlight> */}
       <Icon
         name='md-log-out'
         type='ionicon'
@@ -190,7 +151,7 @@ class Home extends Component {
       </View>
       <SearchBar
         clearIcon
-        placeholder="Colaborador UDEM..."
+        placeholder="Colaborador, departamento o cubículo"
         lightTheme
         inputStyle={{fontSize: 16, fontWeight: 'bold'} }
         round
@@ -202,10 +163,12 @@ class Home extends Component {
     );
   };
 
+  //método de navegación para regresarse a la pantalla anterior
   returner(){
     this.props.navigator.pop();
 }
 
+//método de navegación que te mande a la pantalla de Perfil junto con los datos de los colaboradores
   linker(data){
     console.log(data)
     this.props.navigator.push({
@@ -216,6 +179,8 @@ class Home extends Component {
     })
 }
 
+//método para salir sesión utilizando la función de Firebase,
+//dirigiéndote al Login y reseteando la navegación
   submitme(){
     firebase.auth().signOut().then((user)=>{
         //alert('You are logged in!');
@@ -237,16 +202,6 @@ render() {
   }
   return (
     <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0, marginTop: 0 }}>
-    {/* <View style={{flexDirection:'row', backgroundColor:'#E1E9EC'}}>
-    <Image 
-            style={styles.logo}
-            source={require('./images/search.png')}
-            />
-    
-    <TouchableHighlight style= {styles.bigbutton} onPress={this.submitme.bind(this)} underlayColor={'transparent'}>
-            <Text style={styles.txtboton}>LOG OUT</Text>
-      </TouchableHighlight>
-      </View> */}
       <FlatList
         data={this.state.data}
         renderItem={({ item }) => (

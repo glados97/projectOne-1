@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\node_modules_reactnavigationstack_dist_views_assets_backicon.png",
+        "source": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\src\\main\\res\\drawable-hdpi\\node_modules_reactnavigationstack_dist_views_assets_backicon.png"
+    },
+    {
         "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png",
         "source": "C:\\Users\\santi\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.0.0.aar\\a9027895ae8b830e2579819560cc46ef\\res\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
@@ -44,12 +48,12 @@
         "source": "C:\\Users\\santi\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.0.0.aar\\a9027895ae8b830e2579819560cc46ef\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
-        "source": "C:\\Users\\santi\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.0.0.aar\\a9027895ae8b830e2579819560cc46ef\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
-    },
-    {
         "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png",
         "source": "C:\\Users\\santi\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-10.2.4.aar\\57da4ccd02e17cd2b48234c0d4063342\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
+        "source": "C:\\Users\\santi\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.0.0.aar\\a9027895ae8b830e2579819560cc46ef\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
         "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",

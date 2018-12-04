@@ -9,19 +9,8 @@ import Menu from './Menu';
 
 class Login extends Component {
 
-  // listenForTasks(tasksRef) {
-  //   // listen for changes to the tasks reference, when it updates we'll get a
-  //   // dataSnapshot from firebase
-  //   tasksRef.on('value', (dataSnapshot) => {
-  //     // transform the children to an array
-  //     var tasks = [];
-  //     dataSnapshot.forEach((child) => {
-  //       tasks.push({
-  //         name: child.val().name,
-  //         _key: child.key
-  //       });
-  //     });
-
+//Método para conocer si el usuario tiene activado el servicio de GPS en su dispositivo
+//y para obtener las coordenadas actuales del usuario 
 
 componentDidMount() {
     NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectionChange);
@@ -74,6 +63,7 @@ componentWillUnmount() {
   // 25.664658, -100.422034
   // 25.659435, -100.417853
 
+  //Método para definir si el usuario se encuentra dentro de las coordenadas de la UDEM
    checkLocation(lat, long){
     if(lat>=25.655605&&lat<=25.665282&&long>=-100.423226&&long<=-100.416242){
       //Alert.alert('Atención', 'Estás');
@@ -84,6 +74,7 @@ componentWillUnmount() {
     }
   }
 
+//Método para identificar si el usuario está conectado a Internet
 handleConnectionChange = (isConnected) => {
         this.setState({ status: isConnected });
         console.log(`is connected: ${this.state.status}`);
@@ -111,8 +102,8 @@ handleConnectionChange = (isConnected) => {
 constructor (props) {
     super(props)
     this.state = {
-        email: "santiagog94@gmail.com",
-        password: "pass123",
+        email: "",
+        password: "",
         latitude: null,
         longitude: null,
         error: null
@@ -120,11 +111,15 @@ constructor (props) {
 }
 // this.checkLocation(position.coords.latitude,position.coords.longitude)
 //  Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
+
+//Método para iniciar sesión con Firebase utilizando email y contraseña
+//Si la cuenta ya está verificada, te dirige al Menú principal de la app
+//Si no, te arroja mensajes de alerta
 submitme(){
 
-  // if(!this.checkLocation(this.state.latitude,this.state.longitude)){
-  //   Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
-  // }else{
+  if(!this.checkLocation(this.state.latitude,this.state.longitude)){
+    Alert.alert('Atención', 'No estás dentro de la UDEM, para usar la aplicación debes de estar dentro del campus.');
+  }else{
     firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((user)=>{
         
         if (firebase.auth().currentUser.emailVerified){
@@ -139,9 +134,10 @@ submitme(){
     }).catch(function(e){
       Alert.alert('Error', 'Email o contraseña incorrecta')
     })
-  // }
+  }
 }
 
+//método de navegación que te mande a la pantalla indicada
 linker(comp){
     this.props.navigator.push({
         component: comp
@@ -149,6 +145,7 @@ linker(comp){
 }
 
   render() {
+    console.disableYellowBox = true;
     return (
       <View style={{backgroundColor: '#F5F5F5'}}>
       <View style={{flexDirection:'row', marginBottom: 20, backgroundColor: '#F5F5F5', alignSelf:'center'}}>
@@ -264,7 +261,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "200",
     color: "black",
-    marginTop: 10
+    marginTop: 10,
+    fontWeight: "500",
   },
   txtlink2: {
     alignSelf: "flex-start",
@@ -303,13 +301,10 @@ const styles = StyleSheet.create({
     width: 300,
     alignSelf: "center",
     fontSize: 18,
-    //margin: 20,
-    //marginTop:20,
-    //marginBottom:20,
     marginLeft: 20,
     marginRight: 20,
     borderWidth: 0.5,
-     borderRadius: 20
+    borderRadius: 20
   },
   bigbutton: {
     height: 50,

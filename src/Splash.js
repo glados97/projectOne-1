@@ -8,6 +8,7 @@ const {width} = Dimensions.get('window');
 class Splash extends Component {
 
 
+    //método de conteo para dirigirse a la pantalla de Login
     componentDidMount(){
         // Empieza a contar cuando se carga la página
         this.timeoutHandle = setTimeout(()=>{
@@ -17,6 +18,7 @@ class Splash extends Component {
         }, 2000);
    }
 
+   //método para borrar el conteo
    componentWillUnmount(){
         clearTimeout(this.timeoutHandle);
    }
@@ -39,9 +41,6 @@ class Splash extends Component {
               source={require('./images/udem2.png')}
               />
         </View>
-
-
-
       </View>
     );
   }

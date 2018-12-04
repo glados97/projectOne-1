@@ -70,8 +70,9 @@ class Mapa8 extends Component {
         error: null
     }
   }
-  componentDidMount() {
 
+  //Método para obtener la posición actual (longitud y latitud) del usuario
+  componentDidMount() {
     navigator.geolocation.getCurrentPosition(
        (position) => {
          console.log(position);
@@ -90,13 +91,12 @@ class Mapa8 extends Component {
      );
    }
 
+   //método de navegación para regresarse a la pantalla anterior
    returner(){
     this.props.navigator.pop();
   }
 
   render() {
-
-   //console.log(this.setState);
     return (
       <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
       <View style={{flexDirection:'row', marginBottom: 20, backgroundColor: '#F5F5F5'}}>
@@ -124,6 +124,7 @@ class Mapa8 extends Component {
 
 <Marker
   coordinate = {cordenadas[8]}
+  title= "Rectoría y CIAA"
   />
 
 

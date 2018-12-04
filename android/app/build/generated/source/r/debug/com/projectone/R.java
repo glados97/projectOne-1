@@ -2296,7 +2296,15 @@ containing a value of this type.
         public static final int common_google_signin_btn_text_light_normal_background=0x7f020060;
         public static final int googleg_disabled_color_18=0x7f020061;
         public static final int googleg_standard_color_18=0x7f020062;
-        public static final int notification_template_icon_bg=0x7f020063;
+        public static final int node_modules_reactnativeelements_src_rating_images_bell=0x7f020063;
+        public static final int node_modules_reactnativeelements_src_rating_images_heart=0x7f020064;
+        public static final int node_modules_reactnativeelements_src_rating_images_rocket=0x7f020065;
+        public static final int node_modules_reactnativeelements_src_rating_images_star=0x7f020066;
+        public static final int node_modules_reactnavigationstack_dist_views_assets_backicon=0x7f020067;
+        public static final int node_modules_reactnavigationstack_dist_views_assets_backiconmask=0x7f020068;
+        public static final int notification_template_icon_bg=0x7f02006b;
+        public static final int src_images_search=0x7f020069;
+        public static final int src_images_udem2=0x7f02006a;
     }
     public static final class id {
         public static final int action0=0x7f0d006d;

@@ -20,6 +20,7 @@ import Mapa9 from './mapa/Mapa9';
 import Mapa10 from './mapa/Mapa10';
 import Mapa11 from './mapa/Mapa11';
 
+//se tiene un arreglo de las coordenadas (latitud, longitud) de los espacios físicos de la UDEM
 const cordenadas =[
         {
               latitude: 25.661862,
@@ -101,6 +102,7 @@ returner(){
     this.props.navigator.pop();
 }
 
+//método de navegación que te mande a la pantalla de alguna ubicación de la UDEM junto con los datos de los colaboradores
 linker(comp){
     this.props.navigator.push({
         component: comp,
@@ -112,6 +114,8 @@ linker(comp){
     })
   }
 
+  //método para salir sesión utilizando la función de Firebase,
+  //dirigiéndote al Login y reseteando la navegación
   submitme(){
     firebase.auth().signOut().then((user)=>{
         //alert('You are logged in!');

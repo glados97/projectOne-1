@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\santi\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.0.0.aar\\a9027895ae8b830e2579819560cc46ef\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\santi\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.0.0.aar\\a9027895ae8b830e2579819560cc46ef\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\santi\\Desktop\\React\\projectOne\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\santi\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.0.0.aar\\a9027895ae8b830e2579819560cc46ef\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    }
+]

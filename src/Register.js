@@ -12,10 +12,13 @@ constructor (props) {
     }
 }
 
+//método de navegación para regresarse a la pantalla anterior
 returner(){
     this.props.navigator.pop();
 }
 
+//Método para crear una cuenta de Firebase con email y password
+//Al crearla, se envía un correo de confirmación al usuario
 submitme(){
     firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((user)=>{
       Alert.alert('Atencion', 'Revisa email para confirmar registro');
@@ -101,7 +104,6 @@ const styles = StyleSheet.create({
     //flex: 1,
     backgroundColor: '#ffffff',
     alignItems: 'center',
-    //justifyContent: 'space-around',
     alignSelf: "center",
     //margin: 40,
   },

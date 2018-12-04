@@ -70,8 +70,9 @@ class Mapa9 extends Component {
         error: null
     }
   }
-  componentDidMount() {
 
+  //Método para obtener la posición actual (longitud y latitud) del usuario
+  componentDidMount() {
     navigator.geolocation.getCurrentPosition(
        (position) => {
          console.log(position);
@@ -97,12 +98,12 @@ class Mapa9 extends Component {
      );
    }
 
+   //método de navegación para regresarse a la pantalla anterior
    returner(){
     this.props.navigator.pop();
   }
 
   render() {
-
    //console.log(this.setState);
     return (
       <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
@@ -131,6 +132,7 @@ class Mapa9 extends Component {
 
 <Marker
   coordinate = {cordenadas[9]}
+  title= "Seven Eleven"
   />
 
 

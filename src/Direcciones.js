@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, TouchableOpacity, Image, Dimensions, ScrollView } from 'react-native';
 import firebase from 'firebase';
 import ImageView from 'react-native-image-view';
-import { BackHandler } from 'react-native';
 
 const { height } = Dimensions.get('window');
 const {width} = Dimensions.get('window');
@@ -19,38 +18,16 @@ constructor (props) {
     }
 }
 
-componentDidMount() {
-  BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
-}
-
-componentWillUnmount() {
-  BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
-}
-
-onBackPress = () => {
-  return true;
-}
-
-
+//método para obtener la altura de la pantalla al momento que el contenido cambie
 onContentSizeChange = (contentWidth, contentHeight) => {
   // Save the content height in state
   this.setState({ screenHeight: contentHeight });
 };
 
-linker(comp){
-  //console.log(this.props.data.cubiculo)
-  this.props.navigator.push({
-      component: comp
-  })
-}
-
-
+//método de navegación para regresarse a la pantalla anterior
 returner(){
     this.props.navigator.pop();
 }
-
-
-
 
   render() {
     console.disableYellowBox = true;
@@ -90,7 +67,6 @@ returner(){
       ];
 
     const paso6_1 = [ 
-      //...images5_1,
       {
         source:{
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso1_Escaleras-min.jpg?alt=media&token=4f7770e3-d313-4a6f-8341-38776618830d',
@@ -108,14 +84,12 @@ returner(){
     ];
 
     const paso6_1_def = [ 
-      //...images5_1,
         {
         title: 'Dirígete al cubículo '+ espacio,
         }   
     ];
 
     const paso6_1_der = [ 
-      //...images5_1,
       {
         source:{
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso1_Escaleras-min.jpg?alt=media&token=4f7770e3-d313-4a6f-8341-38776618830d',
@@ -126,8 +100,6 @@ returner(){
     ];
 
     const paso5_2 = [ 
-      //...images5_1,
-      // ...images6_1,
       {
         source:{
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio6_Piso1_Escaleras-min.jpg?alt=media&token=69736fa3-792a-46a1-89eb-48a65afd3ac9',
@@ -169,9 +141,6 @@ returner(){
     ];
 
     const paso6_2 = [ 
-      // ...images5_1,
-      // ...images6_1,
-      // ...images5_2,
       {
         source:{
           //uri: 'https://firebasestorage.googleapis.com/v0/b/projectsearch-e7575.appspot.com/o/Edificios%2FEdificio5_Piso2_Escaleras-min.jpg?alt=media&token=5bae56b1-6dac-4174-a0ac-ae0b064218e6',
@@ -440,6 +409,7 @@ returner(){
         }   
     ];
 
+    //asignación de serie de imágenes dependiendo del número de cubículo
     const images5_1 = [...paso5_1, ...paso5_1_izq];
     let images6_1;
     if (espacio>12){
@@ -448,7 +418,6 @@ returner(){
       images6_1 = [...paso5_1, ...paso6_1, ...paso6_1_der];
     }
 
-    //const images5_2 = [...paso5_1, ...paso6_1, ...paso5_2]; paso6_2_fro
     let images5_2;
     if (espacio<20){
       images5_2 = [...paso5_1, ...paso6_1, ...paso5_2_der];
@@ -465,7 +434,6 @@ returner(){
       images6_2 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2_izq];
     }
 
-    //const images5_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3];
     let images5_3
     if (espacio<20){
       images5_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3_der];
@@ -482,7 +450,6 @@ returner(){
       images6_3 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3_izq];
     }
 
-    //const images5_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4];
     let images5_4;
     if (espacio<20){
       images5_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4_der];
@@ -500,9 +467,7 @@ returner(){
       images6_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4, ...paso6_4_izq];
     }
 
-    //images6_4 = [...paso5_1, ...paso6_1, ...paso5_2, ...paso6_2, ...paso5_3, ...paso6_3, ...paso5_4, ...paso6_4];
-
-
+    //switch para definir la serie de imágenes a desplegar en base al edificio y piso del colaborador
     switch(edificioPiso) {
       case "51":
           images=images5_1;
@@ -532,42 +497,6 @@ returner(){
           images = [];
   }
 
-  
-
-//     switch(edificioPiso) {
-//     case 51:
-//         floor = piso1_5;
-//         // {espacio<=7 ? piso1der : (espacio>=8 && espacio<=12 ? piso1izq : piso1fondo)};
-//         break;
-//     case 52:
-//         floor = piso2_5;
-//         break;
-//     // default:
-//     //     floor = "I have never heard of that fruit...";
-// }
-
-// switch(edificio) {
-//   case 5:
-//       edificio = edificio5;
-//       // {espacio<=7 ? piso1der : (espacio>=8 && espacio<=12 ? piso1izq : piso1fondo)};
-//       break;
-//   case 6:
-//       edificio = edificio5;
-//       break;
-//   default:
-//       edificio = edificio5;
-// }
-
-    
-    // if ((espacio<=7)) {
-    //   floor = piso1der
-    // } 
-    // else if (piso==1 && (espacio>=8 && espacio<=12)){
-    //   floor=piso1izq
-    // }
-    // else  {
-    //   floor = piso1fondo
-    // }
  
     const {isImageViewVisible, imageIndex} = this.state;
 

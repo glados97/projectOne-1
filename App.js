@@ -46,20 +46,6 @@ class App extends Component {
   // componentWillMount=()=> {
   //   BackHandler.addEventListener('hardwareBackPress', ()=>{return true});
   // }
-  
-  componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
-  }
-  
-  componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
-  }
-  
-  onBackPress() {
-    Alert.alert('Atención', 'Boton')
-    return false;
-  }
-
 
   renderScene(route, navigator){
     return<route.component navigator={navigator} {... route.passProps}/>
@@ -69,7 +55,7 @@ class App extends Component {
   render(){
     return(
       <Navigator
-      initialRoute={{component: Login}}
+      initialRoute={{component: Splash}}
       renderScene={this.renderScene.bind(this)} />
     )
   }
